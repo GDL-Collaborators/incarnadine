@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scripts/Title.gd" type="Script" id=1]
+[ext_resource path="res://ui/BaseFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/Title.png" type="Texture" id=2]
-[ext_resource path="res://ui/BaseFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scripts/Title.gd" type="Script" id=3]
 [ext_resource path="res://assets/music/68_jazz_100bpm_70s_keys.ogg" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -21,7 +21,7 @@ bg_color = Color( 0.898039, 0.486275, 0.0509804, 0.227451 )
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="Title" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Title" type="Sprite" parent="." groups=[
 "use_sprite_effect",
@@ -95,7 +95,7 @@ rect_min_size = Vector2( 0, 50 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 text = "Start Game"
 
 [node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -106,7 +106,7 @@ rect_min_size = Vector2( 0, 50 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 text = "Options"
 
 [node name="Button3" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -117,7 +117,7 @@ rect_min_size = Vector2( 0, 50 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 text = "Exit Game"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer" groups=[
@@ -144,7 +144,7 @@ rect_min_size = Vector2( 0, 50 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 text = "←  Done"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
