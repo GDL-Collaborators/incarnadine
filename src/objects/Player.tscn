@@ -71,8 +71,8 @@ radius = 15.8683
 height = 15.0545
 
 [node name="Player" type="KinematicBody2D" groups=[
-"step_button",
 "player",
+"step_button",
 ]]
 script = ExtResource( 1 )
 
@@ -93,6 +93,7 @@ material = ExtResource( 2 )
 position = Vector2( -0.149887, -27.4343 )
 frames = SubResource( 2 )
 animation = "walk_up"
+frame = 1
 playing = true
 
 [node name="ActivateBox" type="Area2D" parent="."]

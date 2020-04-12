@@ -1,4 +1,4 @@
-extends ViewportContainer
+extends ColorRect
 
 var timeForFade : float = 1
 var timeRemaining : float = 1
@@ -7,7 +7,7 @@ var firedOnFaded : bool = false
 var fadeIn : bool = false
 
 func _ready():
-	_fade(2,true,null)
+	_fade(0.5,true,null)
 
 func _fade(time : float,doFadeIn: bool , tex:Texture):
 	if(tex != null):

@@ -10,4 +10,5 @@ void fragment() {
 	if(texture(animTexture,coord).r > progress) col = vec3(0.0);
 
     COLOR.xyz = col;
+		COLOR.a = 1f - col.r;
 }
