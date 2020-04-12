@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://vfx/material/AnimatedMat.tres" type="Material" id=2]
+[ext_resource path="res://vfx/material/PlayerMat.tres" type="Material" id=2]
 [ext_resource path="res://assets/player/PlayerL.png" type="Texture" id=3]
 [ext_resource path="res://assets/player/PlayerR.png" type="Texture" id=4]
 [ext_resource path="res://assets/player/PlayerU.png" type="Texture" id=5]
@@ -71,8 +71,8 @@ radius = 15.8683
 height = 15.0545
 
 [node name="Player" type="KinematicBody2D" groups=[
-"player",
 "step_button",
+"player",
 ]]
 script = ExtResource( 1 )
 

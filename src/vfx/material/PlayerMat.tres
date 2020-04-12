@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://vfx/shaders/Player.shader" type="Shader" id=1]
+[ext_resource path="res://assets/noise.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/strength = 0.5
+shader_param/noiseScale = 0.3
+shader_param/timeStep = 0.14
+shader_param/leftColour = Color( 0, 1, 0.0156863, 1 )
+shader_param/rightColour = Color( 0, 0.298039, 1, 1 )
+shader_param/coloured = false
+shader_param/noiseTex = ExtResource( 2 )
