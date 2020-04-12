@@ -8,8 +8,8 @@ func _ready():
 	main_menu.get_node('Button2').connect('pressed', self, 'options_clicked')
 	main_menu.get_node('Button3').connect('pressed', self, 'exit_clicked')
 	
-	options_menu.get_node('Button').connect('pressed', self, 'return_to_main')
 	options_menu.get_node('CheckButton').connect('toggled', self, 'animation_effect_toggle')
+	options_menu.get_node('Button').connect('pressed', self, 'return_to_main')
 
 	return_to_main()
 	$'/root/GameUi'.disable()
@@ -21,10 +21,12 @@ func start_clicked():
 func options_clicked():
 	main_menu.visible = false
 	options_menu.visible = true
+	options_menu.get_node('Button').grab_focus()
 
 func return_to_main():
 	main_menu.visible = true
 	options_menu.visible = false
+	main_menu.get_node('Button').grab_focus()
 
 func exit_clicked():
 	get_tree().quit()
