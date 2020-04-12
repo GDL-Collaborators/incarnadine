@@ -28,7 +28,7 @@ func _ready():
 func _input(_event):
 	if Input.is_action_just_pressed('cancel') and self.visible:
 		get_tree().set_input_as_handled()
-		get_node('/root/UiMainLayer').end_dialogue()
+		get_node('/root/GameUi').end_dialogue()
 	elif Input.is_action_just_pressed('interact') and self.visible:
 		get_tree().set_input_as_handled()
 		advance()
@@ -40,7 +40,8 @@ func set_tree(items):
 
 func read_item():
 	if current_item >= tree.size():
-		get_node('/root/UiMainLayer').end_dialogue()
+		get_node('/root/GameUi').end_dialogue()
+		tree = null
 	else:
 		var item = tree[current_item]
 		

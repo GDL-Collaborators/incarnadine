@@ -13,6 +13,9 @@ func step_on(body):
 		return
 		
 	if body.is_in_group('step_button'):
+		if not $StepButtonDn.visible:
+			$AudioStreamPlayer2D.play()
+
 		$StepButtonUp.visible = false
 		$StepButtonDn.visible = true
 		emit_signal('toggled', true)
@@ -28,4 +31,5 @@ func step_off(original_body):
 	$StepButtonUp.visible = true
 	$StepButtonDn.visible = false
 	emit_signal('toggled', false)
+	$AudioStreamPlayer2D.play()
 		

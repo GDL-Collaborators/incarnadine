@@ -9,6 +9,7 @@ var tex_right = preload('res://assets/lever/LeverR.png')
 func _ready():
 	set_sprite()
 
+var _interact_label = 'Flip Lever'
 func _interact(_player):
 	on = !on
 	$AudioStreamPlayer2D.play()

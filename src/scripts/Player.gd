@@ -8,6 +8,7 @@ var velocity = Vector2.ZERO
 var direction = 'down'
 var walk_frame = 0
 var interactables = []
+var items = []
 
 onready var activator: KinematicBody2D = $ActivateBox
 onready var dog = get_tree().get_nodes_in_group('dog').front()
@@ -26,10 +27,19 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	interactables = []
+	var first = true
 
 	for thing in activator.get_overlapping_bodies():
 		if thing.has_method('_interact'):
 			interactables.append(thing)
+
+			if first:
+				$'/root/GameUi'.set_interact_label(thing.get('_interact_label'))
+
+			first = false
+
+	if interactables.size() == 0:
+		$'/root/GameUi'.set_interact_label(null)
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed('interact') and interactables.size():
@@ -40,6 +50,23 @@ func _unhandled_input(_event):
 				dog.sit()
 			dog.State.SIT:
 				dog.follow(self)
+
+func add_item(id, icon):
+	items.append(id)
+	$'/root/GameUi'.add_item(id, icon)
+
+func has_item(id):
+	return items.find(id) != -1
+
+func rem_item(id):
+	items.erase(id)
+	$'/root/GameUi'.rem_item(id)
+
+func clear_inventory():
+	for item in items:
+		rem_item(item)
+
+	items.clear()
 
 func pick_animation():
 	var horizontal = abs(velocity.x) > abs(velocity.y)

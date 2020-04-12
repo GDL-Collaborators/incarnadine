@@ -93,7 +93,6 @@ material = ExtResource( 2 )
 position = Vector2( -0.149887, -27.4343 )
 frames = SubResource( 2 )
 animation = "walk_up"
-frame = 2
 playing = true
 
 [node name="ActivateBox" type="Area2D" parent="."]
@@ -106,10 +105,10 @@ shape = SubResource( 3 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="HeyListen"]
 position = Vector2( 0.307781, -2.46224 )
-color = Color( 0.08, 0.08, 0.08, 1 )
+color = Color( 0.321569, 0.34902, 0.372549, 1 )
 polygon = PoolVector2Array( 0.399818, -58.9222, -1.60075, -58.6144, -2.3702, -60.6919, -3.37049, -65.4625, -3.37049, -69.1559, -2.29326, -70.8487, 0.938431, -70.8487, 2.47733, -68.0017, 1.78483, -63.6928 )
 
 [node name="Polygon2D3" type="Polygon2D" parent="HeyListen"]
 position = Vector2( 0.46167, -2.53919 )
-color = Color( 0.08, 0.08, 0.08, 1 )
+color = Color( 0.321569, 0.34902, 0.372549, 1 )
 polygon = PoolVector2Array( 1.55399, -54.998, 0.245926, -56.2291, -1.98548, -55.9983, -3.2166, -54.0747, -2.21631, -52.228, -0.215744, -52.0741, 1.47705, -53.3822 )

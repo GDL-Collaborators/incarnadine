@@ -1,0 +1,262 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/UiController.gd" type="Script" id=1]
+[ext_resource path="res://scripts/DialogueBox.gd" type="Script" id=2]
+[ext_resource path="res://vfx/material/AnimatedMat.tres" type="Material" id=3]
+[ext_resource path="res://assets/ui/Dog.png" type="Texture" id=4]
+[ext_resource path="res://vfx/material/CanvasAnimatedMat.tres" type="Material" id=5]
+[ext_resource path="res://ui/BaseFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/ui/Interact.png" type="Texture" id=7]
+[ext_resource path="res://ui/OutlineFont.tres" type="DynamicFont" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.04, 0.04, 0.04, 0.654902 )
+
+[node name="Game UI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="DialogueBox" type="PanelContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -178.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox"]
+margin_left = 240.0
+margin_right = 1040.0
+margin_bottom = 178.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueBox/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 780.0
+margin_bottom = 158.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/MarginContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 138.0
+
+[node name="ColorRect" type="ColorRect" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Portrait" type="Sprite" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer/ColorRect"]
+material = ExtResource( 3 )
+position = Vector2( 50.1806, 50.3548 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 100.0
+margin_bottom = 138.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer" groups=[
+"use_canvas_effect",
+]]
+material = ExtResource( 5 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 6 )
+text = "Someone"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox/MarginContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 144.0
+margin_bottom = 138.0
+custom_constants/margin_left = 40
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DialogueBox/MarginContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 760.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer2" groups=[
+"use_canvas_effect",
+]]
+material = ExtResource( 5 )
+margin_right = 612.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+text = "This is some dialogue text."
+autowrap = true
+clip_text = true
+
+[node name="Button" type="Button" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer2" groups=[
+"use_canvas_effect",
+]]
+material = ExtResource( 5 )
+margin_top = 114.0
+margin_right = 612.0
+margin_bottom = 138.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 0.501961 )
+text = "↓  More  ↓"
+flat = true
+align = 2
+
+[node name="Controls" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Controls" groups=[
+"use_sprite_effect",
+]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -183.484
+margin_top = -136.452
+margin_right = -133.484
+margin_bottom = -86.452
+texture = ExtResource( 7 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Controls" groups=[
+"use_sprite_effect",
+]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -222.559
+margin_top = -77.3644
+margin_right = -172.559
+margin_bottom = -27.3644
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractLabel" type="Label" parent="Controls"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -121.637
+margin_top = -119.062
+margin_right = -58.6375
+margin_bottom = -101.062
+custom_fonts/font = ExtResource( 8 )
+text = "Interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractLabel2" type="Label" parent="Controls" groups=[
+"use_canvas_effect",
+]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -156.484
+margin_top = -107.452
+margin_right = -133.484
+margin_bottom = -86.452
+custom_fonts/font = ExtResource( 6 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DogLabel" type="Label" parent="Controls"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -156.966
+margin_top = -58.1191
+margin_right = -136.966
+margin_bottom = -40.1191
+custom_fonts/font = ExtResource( 8 )
+text = "Sit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractLabel3" type="Label" parent="Controls" groups=[
+"use_canvas_effect",
+]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -194.21
+margin_top = -47.5094
+margin_right = -171.21
+margin_bottom = -26.5094
+custom_fonts/font = ExtResource( 6 )
+text = "Z"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = -64.0
+margin_right = 72.0
+margin_bottom = -24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="GridContainer" parent="Control"]
+margin_top = -10.0
+margin_right = 190.0
+margin_bottom = 40.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 8
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}

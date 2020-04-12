@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func _interact(_player):
-	get_node('/root/UiMainLayer').start_dialogue([
+	get_node('/root/GameUi').start_dialogue([
 	{
 		'portrait': 'Beggar',
 		'name': 'Old Man',
