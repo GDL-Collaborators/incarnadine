@@ -26,10 +26,7 @@ func _ready():
 	folder.list_dir_end()
 
 func _input(_event):
-	if Input.is_action_just_pressed('cancel') and self.visible:
-		get_tree().set_input_as_handled()
-		get_node('/root/GameUi').end_dialogue()
-	elif Input.is_action_just_pressed('interact') and self.visible:
+	if Input.is_action_just_pressed('interact') and self.visible:
 		get_tree().set_input_as_handled()
 		advance()
 
