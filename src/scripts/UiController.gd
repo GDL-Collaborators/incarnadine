@@ -41,6 +41,12 @@ func rem_item(id):
 		items[id].free()
 		items.erase(id)
 
+func reset_items():
+	for id in items:
+		rem_item(id)
+
+	items.clear()
+
 func disable():
 	for item in get_children():
 		item.visible = false

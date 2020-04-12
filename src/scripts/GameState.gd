@@ -46,6 +46,7 @@ func unlock_exit():
 	portal.activate()
 
 func next_level():
+	$'/root/GameUi'.reset_items()
 	current_level += 1
 	if current_level < levels.size():
 		get_tree().change_scene_to(levels[current_level])
