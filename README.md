@@ -18,7 +18,7 @@ The project is a fast "jam style" running for a month. The direction of the game
 
 In the case of community votes the reactions will be tallied as total :+1:s minus :-1:s. The project lead will cast only tie breaking votes.
 
-At the end of the allotted time the project will enter a "maintenance mode" where contributes will continue to be accepted but a new project will be started so that fresh concepts can be introduced.
+At the end of the allotted time the project will enter a "maintenance mode" where contributions will continue to be accepted but a new project will be started so that fresh concepts can be introduced.
 
 ![](http://s.mmgo.io/t/Br4A)
 
