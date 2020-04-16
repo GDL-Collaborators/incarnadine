@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Lever.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/items/Wrench.png" type="Texture" id=8]
 [ext_resource path="res://scripts/Pushable.gd" type="Script" id=9]
 [ext_resource path="res://objects/pushblocks/PushBlock1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/pushblocks/PushBlock2.tscn" type="PackedScene" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -100,5 +101,8 @@ __meta__ = {
 }
 
 [node name="PushBlock1" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 749.128, 484.507 )
+position = Vector2( 736, 480 )
+
+[node name="PushBlock2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 800, 480 )
 [connection signal="flipped" from="YSort/Lever" to="." method="_on_Lever_flipped"]

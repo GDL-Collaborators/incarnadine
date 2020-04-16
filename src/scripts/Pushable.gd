@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Pushable
 
-export var grid_size = 32
+export var grid_size = Vector2(32, 32)
 export var weight = 30
 
 # How long moving one grid space takes in seconds, based weight
@@ -13,15 +13,18 @@ var accumulated_force = Vector2.ZERO
 # internal movement state
 var movement = null
 
+func _ready():
+	set_safe_margin(0.0)
+
 func _player_hit(normal, force):
 	if not movement:
 		accumulated_force += -normal * force
 
 func _physics_process(delta):
 	if abs(accumulated_force.x) > weight:
-		move_one_grid_unit(Vector2(sign(accumulated_force.x), 0))
+		move_one_grid_unit(Vector2(sign(accumulated_force.x), 0) * grid_size.x)
 	elif abs(accumulated_force.y) > weight:
-		move_one_grid_unit(Vector2(0, sign(accumulated_force.y)))
+		move_one_grid_unit(Vector2(0, sign(accumulated_force.y)) * grid_size.y)
 
 	if movement:
 		movement.progress += delta / move_time
@@ -32,9 +35,7 @@ func _physics_process(delta):
 	else:
 		accumulated_force *= 0.99
 
-func move_one_grid_unit(direction):
-	var amount = direction * grid_size
-	
+func move_one_grid_unit(amount):
 	if !test_move(transform.translated(amount), Vector2.ZERO):
 		movement = {
 			'start': position,
