@@ -3,7 +3,7 @@
 ![Gameplay Preview](preview.gif)
 
 ## What is This?
-The first project created through an open development collaboration among [Game Dev League](https://discordapp.com/invite/gamedev) members over the month of April.
+The first project created through an open development collaboration over the month of April. Anyone is free to join in by providing assets, submitting patches, or contributing to the discussion.
 
 [Join us on Discord!](https://discord.gg/XQbCY3)
 
@@ -14,7 +14,7 @@ The original premise is:
 > Climb the Ascension Tower, a mighty place of power, with your childhood friend. Each floor will challenge you with a unique puzzle. How far will you go to fulfill your dream?
 
 ## Process
-The project is a fast "jam style" running for a month. The direction of the game is decided by a democratic process among the members. Discussion will be in threaded form via [issues](https://github.com/GDL-Collaborators/indigo/issues).
+The project is a fast "jam style" running for a month. The direction of the game is decided by a democratic process among the members. Discussion will be in threaded form via [issues](https://github.com/Iterative-Game-Assembly/indigo/issues).
 
 In the case of community votes the reactions will be tallied as total :+1:s minus :-1:s. The project lead will cast only tie breaking votes.
 
@@ -23,8 +23,8 @@ At the end of the allotted time the project will enter a "maintenance mode" wher
 ![](http://s.mmgo.io/t/Br4A)
 
 ## Getting Started
-* [Have a look at the roadmap](https://github.com/GDL-Collaborators/indigo/projects/2)
-* [Check out the open issues](https://github.com/GDL-Collaborators/indigo/issues)
+* [Have a look at the roadmap](https://github.com/Iterative-Game-Assembly/indigo/projects/2)
+* [Check out the open issues](https://github.com/Iterative-Game-Assembly/indigo/issues)
 * Contribute to development! See below.
 
 ## Contributing
