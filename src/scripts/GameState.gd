@@ -2,7 +2,7 @@ extends Node
 
 # Levels
 var levels = [
-	preload('res://levels/Development.tscn'),
+	preload('res://levels/Interaction.tscn'),
 	preload('res://levels/Card Flipping.tscn'),
 	preload('res://levels/Dog Switch.tscn'),
 ]

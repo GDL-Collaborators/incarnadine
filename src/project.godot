@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Card",
 "language": "GDScript",
 "path": "res://scripts/CardGame/Card.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Pushable",
+"language": "GDScript",
+"path": "res://scripts/Pushable.gd"
 } ]
 _global_script_class_icons={
-"Card": ""
+"Card": "",
+"Pushable": ""
 }
 
 [application]

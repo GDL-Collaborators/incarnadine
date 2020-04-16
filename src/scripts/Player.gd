@@ -25,6 +25,12 @@ func _process(_delta):
 
 	velocity = move_and_slide(velocity)
 
+	for i in range(0, get_slide_count()):
+		var hit = get_slide_collision(i)
+
+		if hit.collider.has_method('_player_hit'):
+			hit.collider.call('_player_hit', hit.normal, hit.remainder.length())
+
 func _physics_process(_delta):
 	interactables = []
 	var first = true

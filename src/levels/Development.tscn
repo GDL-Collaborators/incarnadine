@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Lever.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/items/Wrench.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Pushable.gd" type="Script" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -27,6 +28,9 @@ func _interact(player):
 	player.add_item('thingy', 'Wrench')
 	queue_free()
 "
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 16 )
 
 [node name="Development Scene" type="Node2D"]
 script = SubResource( 1 )
@@ -65,4 +69,32 @@ texture = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StaticBody2D"]
 polygon = PoolVector2Array( -15.3161, 11.3831, -16.8256, 4.96802, 5.0611, -13.5225, 16.7591, -8.99414, 14.495, 0.0623779, -7.76901, 14.7793 )
+
+[node name="Pushable" type="KinematicBody2D" parent="YSort"]
+position = Vector2( 587.532, 385.37 )
+script = ExtResource( 9 )
+weight = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Pushable"]
+shape = SubResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="YSort/Pushable"]
+margin_left = -18.0
+margin_top = -34.0
+margin_right = 18.0
+margin_bottom = 17.0
+color = Color( 0.317647, 0.345098, 0.368627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="YSort/Pushable"]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+color = Color( 0.9, 0.9, 0.9, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="flipped" from="YSort/Lever" to="." method="_on_Lever_flipped"]
