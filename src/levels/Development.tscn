@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Lever.tscn" type="PackedScene" id=2]
@@ -9,15 +9,16 @@
 [ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/items/Wrench.png" type="Texture" id=8]
 [ext_resource path="res://scripts/Pushable.gd" type="Script" id=9]
+[ext_resource path="res://objects/pushblocks/PushBlock1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 func _on_Lever_flipped(state):
-  if state:
-    get_node('/root/GameState').unlock_exit()
-  else:
-    get_node('/root/GameState').lock_exit()
+	if state:
+		get_node('/root/GameState').unlock_exit()
+	else:
+		get_node('/root/GameState').lock_exit()
 "
 
 [sub_resource type="GDScript" id=2]
@@ -97,4 +98,7 @@ color = Color( 0.9, 0.9, 0.9, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PushBlock1" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 749.128, 484.507 )
 [connection signal="flipped" from="YSort/Lever" to="." method="_on_Lever_flipped"]

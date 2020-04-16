@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Sprite",
+"class": "AnimatedAtlas",
+"language": "GDScript",
+"path": "res://scripts/AnimatedAtlas.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Card",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Pushable.gd"
 } ]
 _global_script_class_icons={
+"AnimatedAtlas": "",
 "Card": "",
 "Pushable": ""
 }

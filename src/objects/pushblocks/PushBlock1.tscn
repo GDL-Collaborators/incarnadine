@@ -1,0 +1,43 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/pushblocks/PushBlocks1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Pushable.gd" type="Script" id=2]
+[ext_resource path="res://scripts/AnimatedAtlas.gd" type="Script" id=3]
+[ext_resource path="res://assets/pushblocks/PushBlocks2.png" type="Texture" id=4]
+[ext_resource path="res://assets/pushblocks/PushBlocks3.png" type="Texture" id=5]
+[ext_resource path="res://assets/pushblocks/PushBlocks5.png" type="Texture" id=6]
+[ext_resource path="res://assets/pushblocks/PushBlocks4.png" type="Texture" id=7]
+[ext_resource path="res://assets/pushblocks/PushBlocks6.png" type="Texture" id=8]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 16 )
+
+[node name="PushBlock1" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedAtlas" type="Sprite" parent="."]
+texture = SubResource( 4 )
+script = ExtResource( 3 )
+frames = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ) ]
+frames_per_second = 6.0
+repeat_delay = 2.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -26.7051 )
+scale = Vector2( 1, 0.68313 )
+texture = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.27739, 0 )
+shape = SubResource( 3 )
