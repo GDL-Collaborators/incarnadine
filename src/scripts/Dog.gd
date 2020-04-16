@@ -68,23 +68,6 @@ func pick_animation(direction):
 			sprite.animation = 'run' if linear_velocity.length() > 5 else 'sit'
 			sprite.flip_h = direction.x >= 0
 
-func _process(_delta):
-	update()
-
-func _draw():
-	if not follow_trail.size():
-		return
-
-	var points = follow_trail.duplicate() + [position]
-	var prev_point = null
-
-	points.invert()
-	
-	for point in points:
-		if prev_point:
-			draw_line(prev_point - position, point - position, Color.red)
-		prev_point = point
-
 var frames = 0
 func determine_follow_velocity():
 	frames += 1
