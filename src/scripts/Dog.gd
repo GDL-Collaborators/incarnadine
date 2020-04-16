@@ -5,6 +5,7 @@ var velocity = Vector2.ZERO
 var idle_timer = 1
 var follow_distance = 50
 var follow_timer = 1
+var follow_trail = []
 
 enum State { FOLLOW, SIT }
 var state = State.FOLLOW
@@ -15,6 +16,7 @@ onready var target = player
 
 # Commands
 func follow(who: Node):
+	follow_trail = []
 	target = who
 	state = State.FOLLOW
 	$'/root/GameUi'.set_dog_label('Sit')
@@ -33,13 +35,7 @@ func _physics_process(delta):
 	match state:
 		State.FOLLOW:
 			follow_timer -= delta
-			if follow_timer <= 0:
-				adjust_follow_distance()
-
-			if position.distance_to(target.position) > follow_distance:
-				target_speed = position.direction_to(target.position) * speed
-			else:
-				target_speed = Vector2.ZERO
+			target_speed = determine_follow_velocity()
 			
 			velocity = velocity.linear_interpolate(target_speed, 0.5)
 			linear_velocity = velocity
@@ -50,15 +46,15 @@ func _physics_process(delta):
 	angular_velocity = 0
 		
 	idle_timer -= delta
-	pick_animation()
+	pick_animation(target_speed if target_speed.length() > 4 else position.direction_to(target.position))
 
-func pick_animation():
+func pick_animation(direction):
 	match state:
 		State.FOLLOW:
 			if velocity.length() > 0.1:
 				sprite.animation = 'run'
 				sprite.speed_scale = lerp(1, 2.5, linear_velocity.length() / speed)
-				sprite.flip_h = position.direction_to(target.position).x >= 0
+				sprite.flip_h = direction.x >= 0
 
 				reset_idle()
 			else:
@@ -70,7 +66,49 @@ func pick_animation():
 					sprite.animation = 'stand'
 		State.SIT:
 			sprite.animation = 'run' if linear_velocity.length() > 5 else 'sit'
-			sprite.flip_h = position.direction_to(target.position).x >= 0
+			sprite.flip_h = direction.x >= 0
+
+func _process(_delta):
+	update()
+
+func _draw():
+	if not follow_trail.size():
+		return
+
+	var points = follow_trail.duplicate() + [position]
+	var prev_point = null
+
+	points.invert()
+	
+	for point in points:
+		if prev_point:
+			draw_line(prev_point - position, point - position, Color.red)
+		prev_point = point
+
+var frames = 0
+func determine_follow_velocity():
+	frames += 1
+	
+	if frames % 6 == 0:
+		if not follow_trail.front() or target.position.distance_to(follow_trail.front()) > 1:
+			follow_trail.push_front(target.position)
+			
+	var ray_hit = get_world_2d().direct_space_state.intersect_ray(position, target.position, [self, target])
+
+	if ray_hit:
+		if follow_trail.size() and position.distance_to(follow_trail.back()) < 10:
+			follow_trail.pop_back()
+	elif follow_trail.size() > 2:
+		follow_trail.resize(2)
+
+	if follow_timer <= 0:
+		adjust_follow_distance()
+
+	if position.distance_to(target.position) > follow_distance:
+		var point = follow_trail.back() if ray_hit else target.position
+		return position.direction_to(point) * speed
+	else:
+		return Vector2.ZERO
 
 func adjust_follow_distance():
 	follow_distance = rand_range(50, 100)
