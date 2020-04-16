@@ -12,3 +12,4 @@ build/*
 # Image editor junk
 *-autosave.kra
 *.png~
+*.kra~
