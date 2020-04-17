@@ -13,3 +13,6 @@ build/*
 *-autosave.kra
 *.png~
 *.kra~
+
+# IDE files
+.vscode/
