@@ -15,7 +15,7 @@ var movement = null
 
 func _player_hit(normal, force):
 	if not movement:
-		accumulated_force += -normal * force
+		accumulated_force += -normal * force * 1.1
 
 func _physics_process(delta):
 	if abs(accumulated_force.x) > weight:
