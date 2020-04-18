@@ -9,8 +9,8 @@
 [ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/items/Wrench.png" type="Texture" id=8]
 [ext_resource path="res://scripts/Pushable.gd" type="Script" id=9]
-[ext_resource path="res://objects/pushblocks/PushBlock1.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/pushblocks/PushBlock5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/pushblocks/PushBlockA.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/pushblocks/PushBlockUpLeft.tscn" type="PackedScene" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -101,8 +101,8 @@ __meta__ = {
 }
 
 [node name="PushBlock1" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 728, 480 )
+position = Vector2( 728, 616 )
 
 [node name="PushBlock2" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 816, 480 )
+position = Vector2( 824, 616 )
 [connection signal="flipped" from="YSort/Lever" to="." method="_on_Lever_flipped"]

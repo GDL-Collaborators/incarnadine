@@ -93,7 +93,6 @@ material = ExtResource( 2 )
 position = Vector2( -0.149887, -27.4343 )
 frames = SubResource( 2 )
 animation = "walk_up"
-frame = 1
 playing = true
 
 [node name="ActivateBox" type="Area2D" parent="."]
@@ -113,3 +112,14 @@ polygon = PoolVector2Array( 0.399818, -58.9222, -1.60075, -58.6144, -2.3702, -60
 position = Vector2( 0.46167, -2.53919 )
 color = Color( 0.321569, 0.34902, 0.372549, 1 )
 polygon = PoolVector2Array( 1.55399, -54.998, 0.245926, -56.2291, -1.98548, -55.9983, -3.2166, -54.0747, -2.21631, -52.228, -0.215744, -52.0741, 1.47705, -53.3822 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_drag_margin = true
