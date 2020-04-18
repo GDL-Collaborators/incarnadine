@@ -14,22 +14,22 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 96, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 96, 64, 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 48, 12 )
 
 [node name="PushBlockSmHorizontal" type="KinematicBody2D"]
@@ -48,7 +48,7 @@ repeat_delay = 2.0
 [node name="AnimatedAtlas2" type="Sprite" parent="."]
 position = Vector2( 72, 0 )
 scale = Vector2( 1.5, 1.5 )
-texture = SubResource( 5 )
+texture = SubResource( 2 )
 script = ExtResource( 3 )
 frames = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ) ]
 frames_per_second = 8.0
@@ -57,14 +57,14 @@ repeat_delay = 2.0
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 24, -36 )
 scale = Vector2( 1.5, 0.75 )
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 72, -36 )
 rotation = -1.5708
 scale = Vector2( 0.75, 1.5 )
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 48, 12 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
