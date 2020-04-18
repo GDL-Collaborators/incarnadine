@@ -33,16 +33,11 @@ func _physics_process(delta):
 		accumulated_force *= 0.99
 
 func move_one_grid_unit(amount):
-	# var old_pos = position
-	# var hit = move_and_collide(amount)
-	# position = old_pos
+	var old_pos = position
+	var hit = move_and_collide(amount)
+	position = old_pos
 
-	# print(old_pos)
-	# print(hit)
-	# print(position)
-
-
-	if !test_move(transform.translated(amount), Vector2.ZERO):
+	if !hit:
 		movement = {
 			'start': position,
 			'end': position + amount,
