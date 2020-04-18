@@ -14,7 +14,9 @@ script = ExtResource( 1 )
 grid_size = Vector2( 64, 64 )
 weight = 60
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." groups=[
+"use_sprite_effect",
+]]
 rotation = -1.57079
 texture = ExtResource( 2 )
 polygon = PoolVector2Array( -64, 0.00040156, 64, -0.00040156, 64, 64, -128, 64.0008, -128, -63.9992, -64.0004, -63.9996 )

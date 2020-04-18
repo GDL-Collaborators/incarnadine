@@ -15,7 +15,9 @@ extents = Vector2( 31, 31 )
 script = ExtResource( 1 )
 grid_size = Vector2( 64, 64 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." groups=[
+"use_sprite_effect",
+]]
 position = Vector2( 32, 32 )
 texture = SubResource( 1 )
 
