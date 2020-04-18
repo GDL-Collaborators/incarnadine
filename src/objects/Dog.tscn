@@ -23,20 +23,20 @@ animations = [ {
 "name": "sit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "stand",
-"speed": 5.0
+"name": "idle1",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "idle1",
-"speed": 10.0
+"name": "stand",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -55,7 +55,7 @@ script = ExtResource( 14 )
 "use_sprite_effect",
 ]]
 material = ExtResource( 7 )
-position = Vector2( -0.550331, -15.1344 )
+position = Vector2( 0.449669, -15.1344 )
 frames = SubResource( 1 )
 animation = "sit"
 playing = true

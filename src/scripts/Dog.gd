@@ -30,7 +30,7 @@ func sit():
 
 # Implementation
 func _physics_process(delta):
-	var target_speed
+	var target_speed = Vector2.ZERO
 
 	match state:
 		State.FOLLOW:
