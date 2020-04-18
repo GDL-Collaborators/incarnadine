@@ -1,25 +1,13 @@
 extends CanvasLayer
 
 var item_scene = preload('res://ui/InventoryItem.tscn')
-var item_icons = {}
+var item_icons = {
+	'Wrench': preload('res://assets/items/Wrench.png')
+}
 var items = {}
 
 func _ready():
 	$DialogueBox.visible = false
-
-	var folder: Directory = Directory.new()
-	
-	folder.open('res://assets/items')
-	folder.list_dir_begin(true, true)
-	
-	var file = folder.get_next()
-	while file:
-		if file.ends_with('.png'):
-			var name = file.trim_suffix('.png')
-			item_icons[name] = load('res://assets/items/' + file)
-		file = folder.get_next()
-
-	folder.list_dir_end()
 
 func start_dialogue(tree):
 	get_tree().paused = true
