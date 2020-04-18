@@ -13,9 +13,6 @@ var accumulated_force = Vector2.ZERO
 # internal movement state
 var movement = null
 
-func _ready():
-	set_safe_margin(0.0)
-
 func _player_hit(normal, force):
 	if not movement:
 		accumulated_force += -normal * force
@@ -36,6 +33,15 @@ func _physics_process(delta):
 		accumulated_force *= 0.99
 
 func move_one_grid_unit(amount):
+	# var old_pos = position
+	# var hit = move_and_collide(amount)
+	# position = old_pos
+
+	# print(old_pos)
+	# print(hit)
+	# print(position)
+
+
 	if !test_move(transform.translated(amount), Vector2.ZERO):
 		movement = {
 			'start': position,

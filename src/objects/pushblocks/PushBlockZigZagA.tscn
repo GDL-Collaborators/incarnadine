@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Pushable.gd" type="Script" id=1]
+[ext_resource path="res://assets/pushblocks/PushBlocksV2.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 63, 31 )
+
+[node name="PushBlockZigZagA" type="KinematicBody2D"]
+script = ExtResource( 1 )
+grid_size = Vector2( 64, 64 )
+weight = 80
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 64, 64 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( 0, -128, 0, -64, 64, -64, 64, 0, -64, 0, -64, -64, -128, -64, -128, -128 )
+uv = PoolVector2Array( 384, 1.52588e-05, 384, 64, 448, 64, 448, 128, 320, 128, 320, 64, 256, 64, 256, 1.52588e-05 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -32 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 64, 32 )
+shape = SubResource( 1 )
