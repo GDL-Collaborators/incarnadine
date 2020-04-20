@@ -19,6 +19,7 @@ margin_top = -100.08
 margin_right = 60.0
 margin_bottom = -40.08
 rect_min_size = Vector2( 60, 60 )
+focus_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,6 +27,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 margin_right = 60.0
 margin_bottom = 60.0
+focus_mode = 2
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

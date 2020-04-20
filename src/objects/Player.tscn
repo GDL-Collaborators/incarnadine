@@ -93,6 +93,7 @@ material = ExtResource( 2 )
 position = Vector2( -0.149887, -27.4343 )
 frames = SubResource( 2 )
 animation = "walk_up"
+frame = 2
 playing = true
 
 [node name="ActivateBox" type="Area2D" parent="."]
@@ -123,3 +124,19 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 editor_draw_drag_margin = true
+
+[node name="Weapon" type="Node2D" parent="."]
+scale = Vector2( 1, 0.57 )
+
+[node name="Hitbox" type="Area2D" parent="Weapon"]
+rotation = 6.28319
+
+[node name="Effect" type="Polygon2D" parent="Weapon/Hitbox"]
+visible = false
+position = Vector2( -39.3973, 7.15256e-06 )
+color = Color( 0.831373, 0.239216, 0.239216, 0.54902 )
+polygon = PoolVector2Array( 35.3039, -39.0123, 42.985, -15.9408, 54.2324, 0.903766, 41.8877, 20.1548, 35.8525, 42.1884, 66.3028, 36.9762, 86.8773, 24.3571, 94.0098, 1.31372, 85.1248, -21.5579, 65.2536, -31.9987 )
+
+[node name="Collider" type="CollisionPolygon2D" parent="Weapon/Hitbox"]
+position = Vector2( -39.3973, 7.15256e-06 )
+polygon = PoolVector2Array( 35.3039, -39.0123, 42.985, -15.9408, 54.2324, 0.903766, 41.8877, 20.1548, 35.8525, 42.1884, 66.3028, 36.9762, 86.8773, 24.3571, 94.0098, 1.31372, 85.1248, -21.5579, 65.2536, -31.9987 )

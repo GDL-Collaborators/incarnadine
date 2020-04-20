@@ -1,13 +1,16 @@
 extends CanvasLayer
 
+signal select_item
+
 var item_scene = preload('res://ui/InventoryItem.tscn')
 var item_icons = {
 	'Wrench': preload('res://assets/items/Wrench.png')
 }
-var items = {}
+var items: Dictionary = {}
 
 func _ready():
 	$DialogueBox.visible = false
+	$PopupInventory.visible = false
 
 func start_dialogue(tree):
 	get_tree().paused = true
@@ -22,7 +25,10 @@ func add_item(id, icon):
 	var item_icon = item_scene.instance()
 	item_icon.get_node('Panel/TextureRect').texture = item_icons.get(icon, null)
 	items[id] = item_icon
-	$Control/Inventory.add_child(item_icon)
+	$Inventory/Grid.add_child(item_icon)
+	var item_icon2 = item_scene.instance()
+	item_icon2.get_node('Panel/TextureRect').texture = item_icons.get(icon, null)
+	$PopupInventory/CenterContainer/PanelContainer/MarginContainer/Grid.add_child(item_icon2)
 
 func rem_item(id):
 	if items.has(id):
@@ -34,6 +40,14 @@ func reset_items():
 		rem_item(id)
 
 	items.clear()
+
+func popup_inventory():
+	if items.empty():
+		return
+
+	get_tree().paused = true
+	$PopupInventory.visible = true
+	# items.values().front().get_node('Panel').grab_focus()
 
 func disable():
 	for item in get_children():

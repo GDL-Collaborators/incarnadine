@@ -9,6 +9,7 @@ var direction = 'down'
 var walk_frame = 0
 var interactables = []
 var items = []
+var attacking = false
 
 onready var activator: KinematicBody2D = $ActivateBox
 onready var dog = get_tree().get_nodes_in_group('dog').front()
@@ -21,8 +22,14 @@ func _process(_delta):
 
 	pick_animation()
 
-	$HeyListen.visible = interactables.size()
+	$HeyListen.visible = interactables.size() > 0
 
+	# Melee
+	if target_speed.length() > 1:
+		$Weapon/Hitbox.rotation = target_speed.angle()
+
+func _physics_process(_delta):
+	# Movement
 	velocity = move_and_slide(velocity)
 
 	for i in range(0, get_slide_count()):
@@ -31,31 +38,41 @@ func _process(_delta):
 		if hit.collider.has_method('_player_hit'):
 			hit.collider.call('_player_hit', hit.normal, hit.remainder.length())
 
-func _physics_process(_delta):
+	# Interaction
 	interactables = []
-	var first = true
 
 	for thing in activator.get_overlapping_bodies():
 		if thing.has_method('_interact'):
 			interactables.append(thing)
 
-			if first:
-				$'/root/GameUi'.set_interact_label(thing.get('_interact_label'))
-
-			first = false
-
-	if interactables.size() == 0:
+	# Interaction UI
+	if not interactables.empty():
+		$'/root/GameUi'.set_interact_label(interactables.front().get('_interact_label'))
+	else:
 		$'/root/GameUi'.set_interact_label(null)
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed('interact') and interactables.size():
-		interactables.front()._interact(self)
+	if Input.is_action_just_pressed('interact'):
+		if not interactables.empty():
+			interactables.front()._interact(self)
+		else:
+			melee_attack()
+
 	if Input.is_action_just_pressed('dog'):
 		match dog.state:
 			dog.State.FOLLOW:
 				dog.sit()
 			dog.State.SIT:
 				dog.follow(self)
+
+func melee_attack():
+	$Weapon/Hitbox/Effect.visible = true
+	for thing in $Weapon/Hitbox.get_overlapping_bodies():
+		if thing.has_method('_hit'):
+			thing.call('_hit')
+
+	yield(get_tree().create_timer(0.25), 'timeout')
+	$Weapon/Hitbox/Effect.visible = false
 
 func add_item(id, icon):
 	items.append(id)

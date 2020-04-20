@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/UiController.gd" type="Script" id=1]
 [ext_resource path="res://scripts/DialogueBox.gd" type="Script" id=2]
@@ -11,6 +11,15 @@
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.04, 0.04, 0.04, 0.654902 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.247059 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Game UI" type="CanvasLayer"]
 pause_mode = 2
@@ -236,7 +245,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
+[node name="Inventory" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 32.0
@@ -247,10 +256,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="GridContainer" parent="Control"]
+[node name="Grid" type="GridContainer" parent="Inventory"]
 margin_top = -10.0
 margin_right = 190.0
 margin_bottom = 40.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 8
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupInventory" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="PopupInventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="PopupInventory/CenterContainer"]
+margin_left = 620.0
+margin_top = 340.0
+margin_right = 660.0
+margin_bottom = 380.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupInventory/CenterContainer/PanelContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="PopupInventory/CenterContainer/PanelContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
 grow_vertical = 0
 size_flags_horizontal = 2
 size_flags_vertical = 8
