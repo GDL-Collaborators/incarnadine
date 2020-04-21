@@ -80,6 +80,7 @@ func enable():
 	for item in get_children():
 		item.visible = true
 	$DialogueBox.visible = !!$DialogueBox.tree
+	$PopupInventory.visible = false
 
 func set_interact_label(value):
 	if value:
