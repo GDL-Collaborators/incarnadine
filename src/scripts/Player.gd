@@ -65,6 +65,9 @@ func _unhandled_input(_event):
 			dog.State.SIT:
 				dog.follow(self)
 
+func _hurt():
+	pass
+
 func melee_attack():
 	$Weapon/Hitbox/Effect.visible = true
 	for thing in $Weapon/Hitbox.get_overlapping_bodies():

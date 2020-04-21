@@ -29,7 +29,7 @@ func _interact(player):
 	queue_free()
 "
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=3]
 script/source = "extends StaticBody2D
 
 func _hit():
@@ -40,10 +40,10 @@ func _hit():
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.127273 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="GDScript" id=7]
+[sub_resource type="GDScript" id=6]
 script/source = "extends StaticBody2D
 
 var _interact_label = \"Place Item\"
@@ -53,16 +53,16 @@ func _interact(_player):
 	print('done')
 "
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16, 16 )
 
 [node name="Development Scene" type="Node2D"]
 script = SubResource( 1 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = -728.0
+margin_left = -729.0
 margin_top = -568.0
-margin_right = 2072.0
+margin_right = 2071.0
 margin_bottom = 1200.0
 color = Color( 0.317647, 0.345098, 0.368627, 1 )
 __meta__ = {
@@ -117,7 +117,7 @@ polygon = PoolVector2Array( -15.3161, 11.3831, -16.8256, 4.96802, 5.0611, -13.52
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="YSort"]
 position = Vector2( 904, 288 )
-script = SubResource( 5 )
+script = SubResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="YSort/StaticBody2D2"]
 margin_left = 8.0
@@ -145,14 +145,14 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 58.71
 initial_velocity_random = 0.68
 scale_amount = 4.0
-scale_amount_curve = SubResource( 6 )
+scale_amount_curve = SubResource( 5 )
 color = Color( 0.764706, 0.443137, 0.0627451, 1 )
 hue_variation = -0.13
 hue_variation_random = 1.0
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="YSort"]
 position = Vector2( 808, 520 )
-script = SubResource( 7 )
+script = SubResource( 6 )
 
 [node name="ColorRect4" type="ColorRect" parent="YSort/StaticBody2D4"]
 margin_left = -16.0
@@ -176,7 +176,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="YSort/StaticBody2D4"]
 position = Vector2( 2, 2 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="PushBlockSmA" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 568, 400 )
