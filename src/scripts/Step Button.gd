@@ -1,6 +1,8 @@
 extends Area2D
 
 signal toggled
+signal pressed
+signal released
 
 var locked = false
 
@@ -19,6 +21,7 @@ func step_on(body):
 		$StepButtonUp.visible = false
 		$StepButtonDn.visible = true
 		emit_signal('toggled', true)
+		emit_signal('pressed')
 		
 func step_off(original_body):
 	if locked:
@@ -31,5 +34,6 @@ func step_off(original_body):
 	$StepButtonUp.visible = true
 	$StepButtonDn.visible = false
 	emit_signal('toggled', false)
+	emit_signal('released')
 	$AudioStreamPlayer2D.play()
 		

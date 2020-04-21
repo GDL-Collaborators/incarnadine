@@ -12,6 +12,7 @@ var accumulated_force = Vector2.ZERO
 
 # internal movement state
 var movement = null
+onready var original_transform = transform
 
 func _player_hit(normal, force):
 	if not movement:
@@ -45,3 +46,6 @@ func move_one_grid_unit(amount):
 		}
 
 	accumulated_force = Vector2.ZERO
+
+func reset():
+	transform = original_transform

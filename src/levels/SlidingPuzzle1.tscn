@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://objects/pushblocks/PushBlockSmA.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/pushblocks/PushBlockCornerA.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://objects/pushblocks/PushBlockCornerB.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/pushblocks/PushBlockMedB.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scripts/levels/SlidingPuzzle1.gd" type="Script" id=16]
+[ext_resource path="res://objects/Step Button.tscn" type="PackedScene" id=17]
 
 [node name="SlidingPuzzle1" type="Node2D"]
 script = ExtResource( 16 )
@@ -88,3 +89,6 @@ position = Vector2( 1191.48, 600.007 )
 
 [node name="Dog" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1218.85, 652.639 )
+
+[node name="Step Button" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 1183.09, 666.319 )
