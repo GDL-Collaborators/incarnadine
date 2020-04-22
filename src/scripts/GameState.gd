@@ -10,13 +10,15 @@ var levels = [
 var title_scene = preload('res://Title.tscn')
 var final_scene = preload('res://Final.tscn')
 var current_level = 0
+var level_solved = false
 
 # Options
 var use_animation_effect = true setget animation_effect_toggle
 
 # Misc
-var sprite_material = load('res://vfx/material/AnimatedMat.tres')
-var canvas_material = load('res://vfx/material/CanvasAnimatedMat.tres')
+var sprite_material = preload('res://vfx/material/AnimatedMat.tres')
+var canvas_material = preload('res://vfx/material/CanvasAnimatedMat.tres')
+var solved_sfx = preload('res://assets/sfx/solved.wav')
 onready var viewport = get_tree()
 
 func _ready():
@@ -46,9 +48,22 @@ func unlock_exit():
 	var portal = get_tree().get_nodes_in_group('portal').front()
 	portal.activate()
 
+	# First time only
+	if not level_solved:
+		level_solved = true
+
+		var stream = AudioStreamPlayer.new()
+		stream.stream = solved_sfx
+		get_tree().get_root().add_child(stream)
+		stream.play()
+
+		yield(stream, 'finished')
+		stream.queue_free()
+
 func next_level():
 	$'/root/GameUi'.reset_items()
 	current_level += 1
+	level_solved = false
 	if current_level < levels.size():
 		get_tree().change_scene_to(levels[current_level])
 	else:
