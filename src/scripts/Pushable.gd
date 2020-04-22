@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Pushable
 
+signal pushed
+
 export var grid_size = Vector2(32, 32)
 export var weight = 30
 
@@ -29,6 +31,7 @@ func _physics_process(delta):
 		position = movement.start.linear_interpolate(movement.end, min(movement.progress, 1))
 
 		if movement.progress >= 1:
+			emit_signal('pushed', movement.end)
 			movement = null
 	else:
 		accumulated_force *= 0.99

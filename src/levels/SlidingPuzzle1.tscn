@@ -16,7 +16,7 @@
 [ext_resource path="res://objects/pushblocks/PushBlockCornerB.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/pushblocks/PushBlockMedB.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scripts/levels/SlidingPuzzle1.gd" type="Script" id=16]
-[ext_resource path="res://objects/Step Button.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/Reset Button.tscn" type="PackedScene" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.1736
@@ -42,7 +42,7 @@ tile_data = PoolIntArray( -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 7, 0
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 613.14, 252.973 )
+position = Vector2( 1192.12, 612.25 )
 
 [node name="PushBlockBigA" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 576, 448 )
@@ -93,8 +93,8 @@ position = Vector2( 1191.48, 600.007 )
 [node name="Dog" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1218.85, 652.639 )
 
-[node name="Step Button" parent="YSort" instance=ExtResource( 17 )]
-position = Vector2( 1183.09, 666.319 )
+[node name="Reset Button" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 1189.91, 663.018 )
 
 [node name="UnlockArea" type="Area2D" parent="."]
 

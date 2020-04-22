@@ -4,6 +4,8 @@ signal toggled
 signal pressed
 signal released
 
+export var one_shot = false
+
 var locked = false
 
 func _ready():
@@ -24,7 +26,7 @@ func step_on(body):
 		emit_signal('pressed')
 		
 func step_off(original_body):
-	if locked:
+	if locked or one_shot:
 		return
 
 	for body in get_overlapping_bodies():

@@ -1,0 +1,150 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://objects/pushblocks/PushBlockSmA.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/pushblocks/PushBlockZigZagB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://objects/pushblocks/PushBlockBigB.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/pushblocks/PushBlockBigA.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/pushblocks/PushBlockCornerC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/pushblocks/PushBlockCornerD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/pushblocks/PushBlockZigZagA.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/pushblocks/PushBlockLUpRight.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/pushblocks/PushBlockSmD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/pushblocks/PushBlockSmC.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/levels/SlidingPuzzle2.gd" type="Script" id=16]
+[ext_resource path="res://objects/Step Button.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/pushblocks/PushBlockLDownLeft.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/pushblocks/PushBlockSmB.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/pushblocks/PushBlockTeeB.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/pushblocks/PushBlockTeeA.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/pushblocks/PushBlockLong4X.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/pushblocks/PushBlockLong3X.tscn" type="PackedScene" id=23]
+[ext_resource path="res://objects/Door.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/pushblocks/Switch.png" type="Texture" id=25]
+[ext_resource path="res://objects/Reset Button.tscn" type="PackedScene" id=26]
+
+[node name="SlidingPuzzle2" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -448.0
+margin_top = -768.0
+margin_right = 2209.0
+margin_bottom = 1600.0
+color = Color( 0.317647, 0.345098, 0.368627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( -327666, 7, 0, -327665, 7, 0, -327664, 7, 0, -327663, 7, 0, -327662, 7, 0, -262130, 7, 0, -262129, 3, 0, -262128, 3, 0, -262127, 3, 0, -262126, 7, 0, -196603, 7, 0, -196602, 7, 0, -196601, 7, 0, -196600, 7, 0, -196599, 7, 0, -196598, 7, 0, -196594, 7, 0, -196593, 3, 0, -196592, 3, 0, -196591, 3, 0, -196590, 7, 0, -131067, 7, 0, -131066, 3, 0, -131065, 3, 0, -131064, 3, 0, -131063, 3, 0, -131062, 7, 0, -131058, 7, 0, -131057, 3, 0, -131056, 3, 0, -131055, 3, 0, -131054, 7, 0, -65531, 7, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 7, 0, -65525, 7, 0, -65524, 7, 0, -65523, 7, 0, -65522, 7, 0, -65521, 7, 0, -65520, 3, 0, -65519, 7, 0, -65518, 7, 0, -65517, 7, 0, -65516, 7, 0, 5, 7, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0, 19, 3, 0, 20, 7, 0, 65541, 7, 0, 65542, 7, 0, 65543, 7, 0, 65544, 7, 0, 65545, 7, 0, 65546, 7, 0, 65547, 3, 0, 65548, 3, 0, 65549, 3, 0, 65550, 3, 0, 65551, 3, 0, 65552, 3, 0, 65553, 3, 0, 65554, 3, 0, 65555, 3, 0, 65556, 7, 0, 131077, 7, 0, 131078, 6, 0, 131079, 5, 0, 131080, 4, 0, 131081, 7, 0, 131082, 3, 0, 131083, 3, 0, 131084, 3, 0, 131085, 3, 0, 131086, 3, 0, 131087, 3, 0, 131088, 3, 0, 131089, 3, 0, 131090, 3, 0, 131091, 3, 0, 131092, 7, 0, 196613, 7, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 3, 0, 196626, 3, 0, 196627, 3, 0, 196628, 7, 0, 262149, 7, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 7, 0, 262154, 3, 0, 262155, 3, 0, 262156, 3, 0, 262157, 3, 0, 262158, 3, 0, 262159, 3, 0, 262160, 3, 0, 262161, 3, 0, 262162, 3, 0, 262163, 3, 0, 262164, 7, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 3, 0, 327695, 3, 0, 327696, 3, 0, 327697, 3, 0, 327698, 3, 0, 327699, 3, 0, 327700, 7, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393225, 7, 0, 393226, 3, 0, 393227, 3, 0, 393228, 3, 0, 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0, 393233, 3, 0, 393234, 3, 0, 393235, 3, 0, 393236, 7, 0, 458757, 7, 0, 458758, 5, 0, 458759, 6, 0, 458760, 4, 0, 458761, 7, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458765, 3, 0, 458766, 3, 0, 458767, 3, 0, 458768, 3, 0, 458769, 3, 0, 458770, 3, 0, 458771, 3, 0, 458772, 7, 0, 524293, 7, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 7, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 3, 0, 524304, 3, 0, 524305, 3, 0, 524306, 3, 0, 524307, 3, 0, 524308, 7, 0, 589829, 7, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 3, 0, 589843, 3, 0, 589844, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 7, 0, 655368, 7, 0, 655369, 7, 0, 655370, 7, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 3, 0, 655378, 7, 0, 655379, 7, 0, 655380, 7, 0, 720907, 7, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 7, 0, 720913, 3, 0, 720914, 3, 0, 720915, 7, 0, 786443, 7, 0, 786444, 3, 0, 786445, 7, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 7, 0, 851979, 7, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 851984, 7, 0, 851985, 7, 0, 851986, 7, 0, 851987, 7, 0, 917515, 7, 0, 917516, 7, 0, 917517, 7, 0, 917518, 7, 0, 917519, 7, 0, 917520, 7, 0 )
+
+[node name="Switch" type="Sprite" parent="." groups=[
+"use_sprite_effect",
+]]
+position = Vector2( 960, 832 )
+texture = ExtResource( 25 )
+centered = false
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 495.199, -31.6909 )
+
+[node name="Portal" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 1056.56, -129.473 )
+
+[node name="Entrance" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 499.928, -42.8441 )
+
+[node name="Dog" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 527.298, 9.7879 )
+
+[node name="PushBlockBigA" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 832, 192 )
+
+[node name="PushBlockBigB" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 1088, 320 )
+
+[node name="PushBlockCornerD" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 832, 64 )
+
+[node name="PushBlockCornerC" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 960, 64 )
+
+[node name="PushBlockLDownLeft" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 768, 448 )
+scale = Vector2( -1, 1 )
+
+[node name="PushBlockLUpRight" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 1152, 128 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="PushBlockSmA" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 704, 128 )
+
+[node name="PushBlockSmB" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 704, 192 )
+
+[node name="PushBlockSmC" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 704, 256 )
+
+[node name="PushBlockSmD" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 704, 320 )
+
+[node name="PushBlockZigZagA" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 832, 512 )
+
+[node name="PushBlockZigZagB" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 1088, 192 )
+
+[node name="PushBlockSmA2" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1088, 384 )
+
+[node name="PushBlockSmD2" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 1024, 448 )
+
+[node name="PushBlockSmB2" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 1088, 512 )
+
+[node name="PushBlockTeeA" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 960, 512 )
+
+[node name="PushBlockTeeB" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 960, 256 )
+
+[node name="PushBlockMedA" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 832, 576 )
+
+[node name="PushBlockLong3X" parent="YSort" instance=ExtResource( 23 )]
+position = Vector2( 768, 320 )
+
+[node name="Button1" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 482.465, 576.283 )
+one_shot = true
+
+[node name="Button2" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 481.202, 252.617 )
+one_shot = true
+
+[node name="PushBlockLDownLeft2" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 1216, 512 )
+
+[node name="Door3" parent="YSort" instance=ExtResource( 24 )]
+position = Vector2( 1024, -64 )
+
+[node name="Reset Button" parent="YSort" instance=ExtResource( 26 )]
+position = Vector2( 500.369, 20.6779 )
+
+[node name="Door1" parent="." instance=ExtResource( 24 )]
+position = Vector2( 576, 192 )
+
+[node name="Door2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1088, 640 )
