@@ -6,6 +6,7 @@ var levels = [
 	preload('res://levels/Card Flipping.tscn'),
 	preload('res://levels/Dog Switch.tscn'),
 	preload('res://levels/SlidingPuzzle1.tscn'),
+	preload('res://levels/SlidingPuzzle2.tscn'),
 ]
 var title_scene = preload('res://Title.tscn')
 var final_scene = preload('res://Final.tscn')
