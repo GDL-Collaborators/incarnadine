@@ -88,7 +88,7 @@ func determine_follow_velocity():
 		adjust_follow_distance()
 
 	if position.distance_to(target.position) > follow_distance:
-		var point = follow_trail.back() if ray_hit else target.position
+		var point = follow_trail.back() if ray_hit and follow_trail.size() else target.position
 		return position.direction_to(point) * speed
 	else:
 		return Vector2.ZERO
