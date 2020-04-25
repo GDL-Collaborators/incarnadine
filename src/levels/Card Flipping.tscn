@@ -119,6 +119,7 @@ _cardgame = NodePath("../CardGame")
 [node name="CardGame" type="Node2D" parent="."]
 script = ExtResource( 3 )
 _card_textures = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
+_delayed_flip_time = 0.8
 
 [node name="YSort" type="YSort" parent="."]
 

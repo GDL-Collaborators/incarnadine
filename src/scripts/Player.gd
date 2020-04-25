@@ -55,7 +55,7 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed('interact'):
 		if not interactables.empty():
 			interactables.front()._interact(self)
-		else:
+		elif has_weapon():
 			melee_attack()
 
 	if Input.is_action_just_pressed('dog'):
@@ -93,6 +93,9 @@ func clear_inventory():
 		rem_item(item)
 
 	items.clear()
+
+func has_weapon():
+	return has_item('sword')
 
 func pick_animation():
 	var horizontal = abs(velocity.x) > abs(velocity.y)

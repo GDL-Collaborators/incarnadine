@@ -73,7 +73,7 @@ func determine_follow_velocity():
 	frames += 1
 	
 	if frames % 6 == 0:
-		if not follow_trail.front() or target.position.distance_to(follow_trail.front()) > 1:
+		if not follow_trail.size() or target.position.distance_to(follow_trail.front()) > 1:
 			follow_trail.push_front(target.position)
 			
 	var ray_hit = get_world_2d().direct_space_state.intersect_ray(position, target.position, [self, target])
