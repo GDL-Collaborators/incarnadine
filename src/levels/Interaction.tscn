@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Lever.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Gargoyle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=6]
@@ -38,7 +39,7 @@ tile_data = PoolIntArray( 65539, 7, 0, 65540, 7, 0, 65541, 7, 0, 65542, 7, 0, 65
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Lever" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 634.866, 399.454 )
+position = Vector2( 628.864, 414.887 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 393.251, 380.556 )
@@ -51,4 +52,7 @@ position = Vector2( 837.852, 384.178 )
 
 [node name="Entrance" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 393.251, 365.204 )
+
+[node name="Gargoyle" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 630.865, 287.867 )
 [connection signal="flipped" from="YSort/Lever" to="." method="_on_Lever_flipped"]
