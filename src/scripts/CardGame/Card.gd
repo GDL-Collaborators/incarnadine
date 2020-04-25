@@ -2,22 +2,23 @@ extends StaticBody2D
 
 class_name Card
 
-onready var sprite : Sprite = $Sprite
+onready var sprite: Sprite = $Front
 
 export(NodePath) onready var _cardgame
 export(Texture) var _backface : Texture
-var _card_texture : Texture
+var _card_texture: Texture
 
-var _delayed_flip_active : bool
-var _delayed_flip_timer : float
+var _delayed_flip_active: bool
+var _delayed_flip_timer: float
 
-var _is_flipped : bool
+var _is_flipped: bool
+onready var animator: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node(_cardgame).allCards.append(self)
-	sprite.texture = _backface
-
+	# sprite.texture = _backface
+	animator.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,13 +37,18 @@ func start_delayed_flip(time : float):
 	_delayed_flip_active = true
 
 func assign_texture(texture:Texture):
+	sprite.texture = texture
 	_card_texture = texture
 
 func flip():
 	if _is_flipped:
 		_is_flipped = false
-		sprite.texture = _backface
+		animator.play_backwards('flip')
+		yield(animator, 'animation_finished')
+		# sprite.texture = _backface
 	else:
 		_is_flipped = true
-		sprite.texture = _card_texture
+		animator.play('flip')
+		yield(animator, 'animation_finished')
+		# sprite.texture = _card_texture
 		get_node(_cardgame).on_card_flip(self)

@@ -1,34 +1,76 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/BaseTileset.png" type="Texture" id=1]
 [ext_resource path="res://scripts/CardGame/Card.gd" type="Script" id=2]
 [ext_resource path="res://assets/objects/Cards.png" type="Texture" id=3]
 [ext_resource path="res://vfx/material/AnimatedMat.tres" type="Material" id=4]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 150, 0, 30, 50 )
 
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 30, 50 )
+
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 150, 0, 30, 50 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 19.524, 29.6781 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "flip"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Back:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1 ), Vector2( 1e-05, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Front:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
 
 [node name="Card" type="StaticBody2D"]
 position = Vector2( 456, 264 )
 z_index = 1
 script = ExtResource( 2 )
-_backface = SubResource( 4 )
+_backface = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." groups=[
+[node name="Front" type="Sprite" parent="." groups=[
 "use_sprite_effect",
 ]]
 material = ExtResource( 4 )
+scale = Vector2( 1e-05, 1 )
+texture = SubResource( 2 )
+
+[node name="Back" type="Sprite" parent="." groups=[
+"use_sprite_effect",
+]]
 texture = SubResource( 3 )
+region_rect = Rect2( 150, 0, 30, 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 4.0
+anims/flip = SubResource( 5 )

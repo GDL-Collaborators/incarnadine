@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Beggar.png-02b6453b1218eb9c54a570054144a864.stex"
+path="res://.import/greenston.png-6a41d6a6d7675f6e4f502ddf635486d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Beggar.png"
-dest_files=[ "res://.import/Beggar.png-02b6453b1218eb9c54a570054144a864.stex" ]
+source_file="res://assets/characters/greenston.png"
+dest_files=[ "res://.import/greenston.png-6a41d6a6d7675f6e4f502ddf635486d4.stex" ]
 
 [params]
 

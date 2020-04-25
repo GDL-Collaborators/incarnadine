@@ -8,8 +8,11 @@ var _previously_flipped_card : Card
 var _cards = Array()
 var _rng := RandomNumberGenerator.new()
 
+var poof = preload('res://vfx/Poof.tscn')
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(get_tree().get_root())
 	_rng.randomize()
 	var temp_card_array = allCards.duplicate()
 	var texture_max_index = _card_textures.size() - 1
@@ -30,10 +33,13 @@ func on_card_flip(card : Card):
 	if card != _previously_flipped_card:
 		if _previously_flipped_card != null:
 			if card.sprite.texture == _previously_flipped_card.sprite.texture:
+				yield(get_tree().create_timer(0.4), 'timeout')
 				allCards.erase(_previously_flipped_card)
+				despawn_effect(_previously_flipped_card)
 				_previously_flipped_card.queue_free()
 				_previously_flipped_card = null
 				allCards.erase(card)
+				despawn_effect(card)
 				card.queue_free()
 				if allCards.size() == 0:
 					get_node('/root/GameState').unlock_exit()
@@ -44,3 +50,10 @@ func on_card_flip(card : Card):
 				card.start_delayed_flip(_delayed_flip_time)
 		else:
 			_previously_flipped_card = card
+
+func despawn_effect(card):
+	var inst = poof.instance()
+	inst.position = card.position
+	owner.find_node('YSort').add_child(inst)
+	yield(get_tree().create_timer(1), 'timeout')
+	inst.queue_free()
