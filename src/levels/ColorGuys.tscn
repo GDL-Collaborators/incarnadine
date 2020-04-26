@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -9,19 +9,26 @@
 [ext_resource path="res://objects/characters/Bluewood.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/characters/Redmond.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/characters/Greenston.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scripts/levels/ColorGuys.gd" type="Script" id=10]
+[ext_resource path="res://scripts/levels/ColorGuys/ColorGuys.gd" type="Script" id=10]
+[ext_resource path="res://assets/objects/Funnel.png" type="Texture" id=11]
+[ext_resource path="res://scripts/levels/ColorGuys/Redmond.gd" type="Script" id=12]
+[ext_resource path="res://scripts/levels/ColorGuys/Greenston.gd" type="Script" id=13]
+[ext_resource path="res://scripts/levels/ColorGuys/Bluewood.gd" type="Script" id=14]
+[ext_resource path="res://scripts/levels/ColorGuys/Funnel.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 192, 160 )
+
+[sub_resource type="CapsuleShape2D" id=2]
 
 [node name="ColorGuys" type="Node2D"]
 script = ExtResource( 10 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -909.346
-margin_top = -651.231
-margin_right = 2339.65
-margin_bottom = 1400.77
+margin_left = -663.529
+margin_top = -657.516
+margin_right = 2585.47
+margin_bottom = 1394.48
 color = Color( 0.317647, 0.345098, 0.368627, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,22 +66,37 @@ blue = Color( 0.09, 0.09, 0.9, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Portal" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 1312, 256 )
+position = Vector2( 1303.62, 242.731 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 393.765, 238.242 )
+position = Vector2( 422.397, 227.068 )
 
 [node name="Dog" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 417.682, 266.942 )
+position = Vector2( 446.314, 255.768 )
 
 [node name="Entrance" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 388.982, 228.675 )
+position = Vector2( 417.614, 217.501 )
 
 [node name="Bluewood" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 856.839, 184.808 )
+script = ExtResource( 14 )
 
 [node name="Redmond" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 1142.45, 390.295 )
+script = ExtResource( 12 )
 
 [node name="Greenston" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 585.442, 381.248 )
+script = ExtResource( 13 )
+
+[node name="Funnel" type="Sprite" parent="."]
+position = Vector2( 700.46, 232.561 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 698.26, 223.772 )
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+rotation = 1.57079
+shape = SubResource( 2 )

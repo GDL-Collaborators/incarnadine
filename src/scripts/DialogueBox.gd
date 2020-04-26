@@ -11,6 +11,9 @@ onready var dialogue_next: Label = $MarginContainer/HBoxContainer/VBoxContainer2
 var portraits = {
 	'Default': preload('res://assets/portraits/Default.png'),
 	'Beggar': preload('res://assets/portraits/Beggar.png'),
+	'Redmond': preload('res://assets/portraits/Redmond.png'),
+	'Bluewood': preload('res://assets/portraits/Bluewood.png'),
+	'Greenston': preload('res://assets/portraits/Greenston.png'),
 }
 
 func _input(_event):

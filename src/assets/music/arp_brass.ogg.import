@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/arp_brass.ogg-0533d52e4f272101f30c9c4d288ff60d.oggstr"
+
+[deps]
+
+source_file="res://assets/music/arp_brass.ogg"
+dest_files=[ "res://.import/arp_brass.ogg-0533d52e4f272101f30c9c4d288ff60d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

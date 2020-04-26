@@ -23,20 +23,14 @@ func _process(_delta):
 
 	update()
 
-var n = 0
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			match n % 3:
-				0: fill(0, 0, red)
-				1: fill(0, 0, green)
-				2: fill(0, 0, blue)
-			n += 1
-
 func _draw():
 	for y in range(0, tiles.size()):
 		for x in range(0, tiles[y].size()):
 			draw_rect(Rect2(x * tile_size, y * tile_size, tile_size, tile_size), tiles[y][x])
+
+func fill_color(color_name):
+	if get(color_name):
+		fill(0, 0, get(color_name))
 
 func init_map():
 	tiles = []

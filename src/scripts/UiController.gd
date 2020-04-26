@@ -4,7 +4,11 @@ signal select_item
 
 var item_scene = preload('res://ui/InventoryItem.tscn')
 var item_icons = {
-	'Wrench': preload('res://assets/items/Wrench.png')
+	'Wrench': preload('res://assets/items/Wrench.png'),
+	'RedPaint': preload('res://assets/items/RedPaint.png'),
+	'BluePaint': preload('res://assets/items/BluePaint.png'),
+	'GreenPaint': preload('res://assets/items/GreenPaint.png'),
+	'Sword': preload('res://assets/items/Sword.png')
 }
 var items: Array = []
 
@@ -46,7 +50,7 @@ func rem_item(id):
 		if item.id == id:
 			item.main_icon.queue_free()
 			item.popup_icon.queue_free()
-			items.erase(id)
+			items.erase(item)
 			break
 
 func reset_items():
