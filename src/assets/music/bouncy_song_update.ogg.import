@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bouncy_song_update.ogg-1054b349535e5161ea25a4959969c079.oggstr"
+
+[deps]
+
+source_file="res://assets/music/bouncy_song_update.ogg"
+dest_files=[ "res://.import/bouncy_song_update.ogg-1054b349535e5161ea25a4959969c079.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
