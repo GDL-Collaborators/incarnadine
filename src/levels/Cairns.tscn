@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://assets/objects/isaz.png" type="Texture" id=18]
 [ext_resource path="res://assets/objects/berkana.png" type="Texture" id=19]
 [ext_resource path="res://assets/objects/sowilo.png" type="Texture" id=20]
+[ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=21]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.4389
@@ -50,7 +51,11 @@ radius = 26.5526
 script = ExtResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 21 )
 format = 1
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="YSort" type="YSort" parent="."]
 
