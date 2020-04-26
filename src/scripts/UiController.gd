@@ -22,10 +22,12 @@ func _ready():
 func start_dialogue(tree):
 	get_tree().paused = true
 	$DialogueBox.set_tree(tree)
+	$Controls.visible = false
 	$DialogueBox.visible = true
 	
 func end_dialogue():
 	$DialogueBox.visible = false
+	$Controls.visible = true
 	get_tree().paused = false
 	emit_signal('end_dialogue')
 

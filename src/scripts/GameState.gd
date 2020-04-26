@@ -82,10 +82,6 @@ func animation_effect_toggle(state):
 	apply_animation_effect()
 
 func apply_animation_effect():
-	# Quitting
-	if not get_tree():
-		return
-
 	for item in get_tree().get_nodes_in_group('use_canvas_effect'):
 		if use_animation_effect:
 			if not item.material:

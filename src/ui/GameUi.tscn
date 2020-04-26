@@ -57,7 +57,7 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 780.0
-margin_bottom = 158.0
+margin_bottom = 161.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -84,14 +84,11 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer" groups=[
-"use_canvas_effect",
-]]
-material = ExtResource( 5 )
+[node name="Label" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 92.0
-margin_bottom = 26.0
+margin_bottom = 29.0
 custom_fonts/font = ExtResource( 6 )
 text = "Someone"
 align = 1
@@ -108,10 +105,7 @@ margin_right = 760.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer2" groups=[
-"use_canvas_effect",
-]]
-material = ExtResource( 5 )
+[node name="Label2" type="Label" parent="DialogueBox/MarginContainer/HBoxContainer/VBoxContainer2"]
 margin_right = 612.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
@@ -287,18 +281,18 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="PopupInventory/CenterContainer"]
-margin_left = 565.0
-margin_top = 336.0
-margin_right = 715.0
-margin_bottom = 384.0
+margin_left = 560.0
+margin_top = 334.0
+margin_right = 719.0
+margin_bottom = 385.0
 custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupInventory/CenterContainer/PanelContainer"]
-margin_right = 150.0
-margin_bottom = 48.0
+margin_right = 159.0
+margin_bottom = 51.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 10
 custom_constants/margin_left = 20
@@ -310,20 +304,20 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupInventory/CenterContainer/PanelContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 10.0
-margin_right = 130.0
-margin_bottom = 38.0
+margin_right = 139.0
+margin_bottom = 41.0
 custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="PopupInventory/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_right = 110.0
-margin_bottom = 18.0
+margin_right = 119.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.317647, 0.345098, 0.368627, 1 )
 text = "Select an Item"
 
 [node name="Grid" type="GridContainer" parent="PopupInventory/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 28.0
-margin_bottom = 28.0
+margin_top = 31.0
+margin_bottom = 31.0
 grow_vertical = 0
 size_flags_horizontal = 2
 size_flags_vertical = 8
