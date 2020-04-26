@@ -38,8 +38,8 @@ func _check_solution():
 	if _player_array == _solution_array:
 		GameState.unlock_exit()
 	elif _player_array != _solution_array:
-		_player_array.empty()
+		_player_array.clear()
 
 func _test():
 	if _player_array.size() >= 0 :
-		print('_player_array')
+		print(_player_array, _solution_array)
