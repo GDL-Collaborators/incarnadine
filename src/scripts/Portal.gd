@@ -16,4 +16,4 @@ func deactivate():
 func _on_Area2D_body_entered(body: PhysicsBody2D):
 	if active:
 		if body and body.is_in_group('player'):
-			get_node('/root/GameState').next_level()
+			GameState.next_level()

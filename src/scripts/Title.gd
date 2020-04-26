@@ -36,8 +36,8 @@ func _ready():
 	$'/root/GameUi'.disable()
 
 func start_clicked():
-	get_node('/root/GameState').start_game()
-	get_node('/root/GameUi').enable()
+	GameState.start_game()
+	GameUi.enable()
 
 func go_to_options():
 	main_menu.visible = false
@@ -61,4 +61,4 @@ func exit_clicked():
 	get_tree().quit()
 
 func animation_effect_toggle(state):
-	get_node('/root/GameState').use_animation_effect = state
+	GameState.use_animation_effect = state

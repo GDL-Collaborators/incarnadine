@@ -27,5 +27,5 @@ func check_solved():
 		for switch in get_tree().get_nodes_in_group('dog_switches'):
 			switch.locked = true
 			
-		get_node('/root/GameState').unlock_exit()
+		GameState.unlock_exit()
 		get_tree().get_nodes_in_group('dog').front().follow_player()

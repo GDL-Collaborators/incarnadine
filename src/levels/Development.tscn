@@ -15,9 +15,9 @@ script/source = "extends Node2D
 
 func _on_Lever_flipped(state):
 	if state:
-		get_node('/root/GameState').unlock_exit()
+		GameState.unlock_exit()
 	else:
-		get_node('/root/GameState').lock_exit()
+		GameState.lock_exit()
 "
 
 [sub_resource type="GDScript" id=2]

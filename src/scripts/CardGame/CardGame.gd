@@ -41,7 +41,7 @@ func on_card_flip(card : Card):
 				despawn_effect(card)
 				card.queue_free()
 				if allCards.size() == 0:
-					get_node('/root/GameState').unlock_exit()
+					GameState.unlock_exit()
 					pass
 			else:
 				_previously_flipped_card.start_delayed_flip(_delayed_flip_time)

@@ -28,7 +28,7 @@ func set_tree(items):
 
 func read_item():
 	if current_item >= tree.size():
-		get_node('/root/GameUi').end_dialogue()
+		GameUi.end_dialogue()
 		tree = null
 	else:
 		var item = tree[current_item]
