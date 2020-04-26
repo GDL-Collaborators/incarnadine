@@ -1,0 +1,166 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/levels/Cairns.gd" type="Script" id=5]
+[ext_resource path="res://scripts/spectacles.gd" type="Script" id=6]
+[ext_resource path="res://assets/OldCroneProfile.png" type="Texture" id=7]
+[ext_resource path="res://scripts/oldcrone.gd" type="Script" id=8]
+[ext_resource path="res://scripts/NotSpectacles.gd" type="Script" id=9]
+[ext_resource path="res://scripts/CairnMannaz.gd" type="Script" id=10]
+[ext_resource path="res://scripts/CairnHagalaz.gd" type="Script" id=11]
+[ext_resource path="res://scripts/CairnIsaz.gd" type="Script" id=12]
+[ext_resource path="res://scripts/CairnBerkanan.gd" type="Script" id=13]
+[ext_resource path="res://scripts/CairnSowilo.gd" type="Script" id=14]
+[ext_resource path="res://assets/items/spectacles.png" type="Texture" id=15]
+[ext_resource path="res://assets/objects/mannaz.png" type="Texture" id=16]
+[ext_resource path="res://assets/objects/hagalaz.png" type="Texture" id=17]
+[ext_resource path="res://assets/objects/isaz.png" type="Texture" id=18]
+[ext_resource path="res://assets/objects/berkana.png" type="Texture" id=19]
+[ext_resource path="res://assets/objects/sowilo.png" type="Texture" id=20]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.4389
+height = 18.6515
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 89.1725
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 99.7253
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 25.9679
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 28.9642
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 29.7997
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 34.5366
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 26.5526
+
+[node name="Cairns" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 641.516, 357.104 )
+
+[node name="Dog" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 717.69, 387.584 )
+
+[node name="Entrance" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1074.38, 579.057 )
+
+[node name="Portal" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 135.355, 163.85 )
+
+[node name="OldCrone" type="StaticBody2D" parent="YSort"]
+position = Vector2( 44.2435, 389.628 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OldCrone"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="YSort/OldCrone"]
+position = Vector2( 2.64809, -24.4949 )
+texture = ExtResource( 7 )
+
+[node name="Spectacles" type="StaticBody2D" parent="YSort"]
+position = Vector2( 720.007, 671.367 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Spectacles"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Spectacles"]
+texture = ExtResource( 15 )
+
+[node name="NotSpectacles" type="StaticBody2D" parent="YSort"]
+position = Vector2( 1180.24, 104.557 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NotSpectacles"]
+shape = SubResource( 3 )
+
+[node name="CairnMannaz" type="StaticBody2D" parent="YSort"]
+position = Vector2( 697.396, 120.31 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnMannaz"]
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnMannaz"]
+position = Vector2( -6.22107, -29.8854 )
+scale = Vector2( 2.14016, 2.01969 )
+texture = ExtResource( 16 )
+
+[node name="CairnHagalaz" type="StaticBody2D" parent="YSort"]
+position = Vector2( 467.343, 121.196 )
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnHagalaz"]
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnHagalaz"]
+position = Vector2( -4.17719, -24.9202 )
+scale = Vector2( 1.75724, 1.78305 )
+texture = ExtResource( 17 )
+
+[node name="CairnIsaz" type="StaticBody2D" parent="YSort"]
+position = Vector2( 771.412, 304.613 )
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnIsaz"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnIsaz"]
+position = Vector2( -5.09903, -39.73 )
+scale = Vector2( 2.39161, 2.41817 )
+texture = ExtResource( 18 )
+
+[node name="CairnSowilo" type="StaticBody2D" parent="YSort"]
+position = Vector2( 561.476, 436.338 )
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnSowilo"]
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnSowilo"]
+position = Vector2( -2.24158, -33.4568 )
+scale = Vector2( 1.98041, 2.42968 )
+texture = ExtResource( 20 )
+
+[node name="CairnBerkanan" type="StaticBody2D" parent="YSort"]
+position = Vector2( 356.557, 313.024 )
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnBerkanan"]
+rotation = 1.5708
+shape = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnBerkanan"]
+position = Vector2( -0.0458984, -18.5959 )
+scale = Vector2( 2.04925, 1.98872 )
+texture = ExtResource( 19 )
+[connection signal="mannaz" from="YSort/CairnMannaz" to="." method="_on_CairnMannaz_mannaz"]
+[connection signal="hagalaz" from="YSort/CairnHagalaz" to="." method="_on_CairnHagalaz_hagalaz"]
+[connection signal="isaz" from="YSort/CairnIsaz" to="." method="_on_CairnIsaz_isaz"]
+[connection signal="sowilo" from="YSort/CairnSowilo" to="." method="_on_CairnSowilo_sowilo"]
+[connection signal="berkanan" from="YSort/CairnBerkanan" to="." method="_on_CairnBerkanan_berkanan"]
