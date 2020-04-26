@@ -33,7 +33,7 @@ func _ready():
 			controls_menu.add_child_below_node(controls_menu.get_node('Placeholder'), inst)
 
 	return_to_main()
-	$'/root/GameUi'.disable()
+	GameUi.disable()
 
 func start_clicked():
 	GameState.start_game()

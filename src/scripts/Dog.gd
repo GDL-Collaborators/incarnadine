@@ -19,14 +19,14 @@ func follow(who: Node):
 	follow_trail = []
 	target = who
 	state = State.FOLLOW
-	$'/root/GameUi'.set_dog_label('Sit')
+	GameUi.set_dog_label('Sit')
 
 func follow_player():
 	follow(player)
 
 func sit():
 	state = State.SIT
-	$'/root/GameUi'.set_dog_label('Follow')
+	GameUi.set_dog_label('Follow')
 
 # Implementation
 func _physics_process(delta):

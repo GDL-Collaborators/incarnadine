@@ -36,7 +36,6 @@ func _ready():
 		current_level = index
 
 	apply_animation_effect()
-	get_tree().connect('tree_changed', self, 'apply_animation_effect')
 
 func start_game():
 	get_tree().change_scene_to(levels[0])
@@ -62,13 +61,20 @@ func unlock_exit():
 		stream.queue_free()
 
 func next_level():
-	$'/root/GameUi'.reset_items()
+	GameUi.reset_items()
 	current_level += 1
 	level_solved = false
+
+	get_tree().disconnect('tree_changed', self, 'apply_animation_effect')
+
 	if current_level < levels.size():
 		get_tree().change_scene_to(levels[current_level])
+		apply_animation_effect()
 	else:
 		get_tree().change_scene_to(final_scene)
+		apply_animation_effect()
+
+	get_tree().connect('tree_changed', self, 'apply_animation_effect')
 
 func animation_effect_toggle(state):
 	use_animation_effect = state

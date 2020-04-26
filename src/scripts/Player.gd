@@ -10,6 +10,7 @@ var walk_frame = 0
 var interactables = []
 var items = []
 var attacking = false
+var flags = {}
 
 onready var activator: KinematicBody2D = $ActivateBox
 onready var dog = get_tree().get_nodes_in_group('dog').front()
@@ -47,9 +48,9 @@ func _physics_process(_delta):
 
 	# Interaction UI
 	if not interactables.empty():
-		$'/root/GameUi'.set_interact_label(interactables.front().get('_interact_label'))
+		GameUi.set_interact_label(interactables.front().get('_interact_label'))
 	else:
-		$'/root/GameUi'.set_interact_label(null)
+		GameUi.set_interact_label(null)
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed('interact'):
@@ -79,14 +80,14 @@ func melee_attack():
 
 func add_item(id, icon):
 	items.append(id)
-	$'/root/GameUi'.add_item(id, icon)
+	GameUi.add_item(id, icon)
 
 func has_item(id):
 	return items.find(id) != -1
 
 func rem_item(id):
 	items.erase(id)
-	$'/root/GameUi'.rem_item(id)
+	GameUi.rem_item(id)
 
 func clear_inventory():
 	for item in items:
@@ -96,6 +97,15 @@ func clear_inventory():
 
 func has_weapon():
 	return has_item('sword')
+
+func has_flag(name):
+	return flags.has(name)
+
+func set_flag(name, value):
+	flags[name] = value
+
+func clear_flags():
+	flags.clear()
 
 func pick_animation():
 	var horizontal = abs(velocity.x) > abs(velocity.y)
