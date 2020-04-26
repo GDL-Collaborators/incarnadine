@@ -14,6 +14,7 @@ var portraits = {
 	'Redmond': preload('res://assets/portraits/Redmond.png'),
 	'Bluewood': preload('res://assets/portraits/Bluewood.png'),
 	'Greenston': preload('res://assets/portraits/Greenston.png'),
+	'OldCrone': preload('res://assets/portraits/OldCrone.png'),
 }
 
 func _input(_event):
