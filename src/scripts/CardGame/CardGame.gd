@@ -12,7 +12,6 @@ var poof = preload('res://vfx/Poof.tscn')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(get_tree().get_root())
 	_rng.randomize()
 	var temp_card_array = allCards.duplicate()
 	var texture_max_index = _card_textures.size() - 1

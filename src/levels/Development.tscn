@@ -50,7 +50,6 @@ var _interact_label = \"Place Item\"
 func _interact(_player):
 	GameUi.popup_inventory()
 	yield(GameUi, 'select_item')
-	print('done')
 "
 
 [sub_resource type="RectangleShape2D" id=7]

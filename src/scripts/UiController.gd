@@ -13,10 +13,6 @@ onready var popup_grid = $PopupInventory/CenterContainer/PanelContainer/MarginCo
 func _ready():
 	$DialogueBox.visible = false
 	$PopupInventory.visible = false
-	# add_item('w1', 'Wrench')
-	# add_item('w2', 'Wrench')
-	# add_item('w3', 'Wrench')
-	# popup_inventory()
 
 func start_dialogue(tree):
 	get_tree().paused = true
