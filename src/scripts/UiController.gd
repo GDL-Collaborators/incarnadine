@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal end_dialogue
 signal select_item
 
 var item_scene = preload('res://ui/InventoryItem.tscn')
@@ -26,6 +27,7 @@ func start_dialogue(tree):
 func end_dialogue():
 	$DialogueBox.visible = false
 	get_tree().paused = false
+	emit_signal('end_dialogue')
 
 func add_item(id, icon):
 	var main_icon: Control = item_scene.instance()

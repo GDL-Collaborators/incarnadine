@@ -24,6 +24,7 @@ func _input(_event):
 func set_tree(items):
 	tree = items
 	current_item = 0
+	dialogue_portrait.texture = portraits['Default']
 	read_item()
 
 func read_item():
@@ -33,13 +34,13 @@ func read_item():
 	else:
 		var item = tree[current_item]
 		
-		dialogue_name.text = item.name
 		dialogue_body.text = item.body
+		
+		if item.has('name'):
+			dialogue_name.text = item.name
 
 		if item.has('portrait') and portraits.has(item.portrait):
 			dialogue_portrait.texture = portraits[item.portrait]
-		else:
-			dialogue_portrait.texture = portraits['Default']
 
 		dialogue_next.visible = current_item + 1 < tree.size()
 
