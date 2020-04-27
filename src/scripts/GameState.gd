@@ -4,7 +4,9 @@ extends Node
 var levels = [
 	preload('res://levels/Interaction.tscn'),
 	preload('res://levels/Card Flipping.tscn'),
+	preload('res://levels/Cairns.tscn'),
 	preload('res://levels/Dog Switch.tscn'),
+	preload('res://levels/ColorGuys.tscn'),
 	preload('res://levels/SlidingPuzzle1.tscn'),
 	preload('res://levels/SlidingPuzzle2.tscn'),
 ]
