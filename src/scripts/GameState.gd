@@ -11,8 +11,9 @@ var levels = [
 	preload('res://levels/SlidingPuzzle2.tscn'),
 ]
 var title_scene = preload('res://Title.tscn')
+var opening_scene = preload('res://Opening.tscn')
 var final_scene = preload('res://Final.tscn')
-var current_level = 0
+var current_level = -1
 var level_solved = false
 
 # Options
@@ -40,7 +41,7 @@ func _ready():
 	apply_animation_effect()
 
 func start_game():
-	get_tree().change_scene_to(levels[0])
+	get_tree().change_scene_to(opening_scene)
 
 func lock_exit():
 	var portal = get_tree().get_nodes_in_group('portal').front()
@@ -53,7 +54,6 @@ func unlock_exit():
 	# First time only
 	if not level_solved:
 		level_solved = true
-
 		Audio.play_sfx(solved_sfx)
 
 func next_level():
@@ -78,6 +78,9 @@ func animation_effect_toggle(state):
 	apply_animation_effect()
 
 func apply_animation_effect():
+	if not get_tree():
+		return
+
 	for item in get_tree().get_nodes_in_group('use_canvas_effect'):
 		if use_animation_effect:
 			if not item.material:
