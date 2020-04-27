@@ -46,6 +46,10 @@ func _physics_process(_delta):
 		if thing.has_method('_interact'):
 			interactables.append(thing)
 
+	for thing in activator.get_overlapping_areas():
+		if thing.has_method('_interact'):
+			interactables.append(thing)
+
 	# Interaction UI
 	if not interactables.empty():
 		GameUi.set_interact_label(interactables.front().get('_interact_label'))

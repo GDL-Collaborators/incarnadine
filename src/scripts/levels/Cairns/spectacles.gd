@@ -1,8 +1,15 @@
-extends StaticBody2D
+extends Area2D
 
 var _interact_label = 'Lost Spectacles'
 
 func _interact(player):
+	GameUi.start_dialogue([
+		{
+			'portrait': 'Floor',
+			'name': '',
+			'body': "You found a pair of dusty old spectacles among the debris on the floor. You put them in your pocket."
+		}
+	])
 	player.add_item('spectacles', 'Spectacles')
 	queue_free()
 
