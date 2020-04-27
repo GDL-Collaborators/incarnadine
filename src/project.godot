@@ -46,6 +46,7 @@ config/icon="res://icon.png"
 
 GameUi="*res://ui/GameUi.tscn"
 GameState="*res://scripts/GameState.gd"
+Audio="*res://scripts/Audio.gd"
 
 [display]
 

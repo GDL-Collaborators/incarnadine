@@ -53,13 +53,7 @@ func unlock_exit():
 	if not level_solved:
 		level_solved = true
 
-		var stream = AudioStreamPlayer.new()
-		stream.stream = solved_sfx
-		get_tree().get_root().add_child(stream)
-		stream.play()
-
-		yield(stream, 'finished')
-		stream.queue_free()
+		Audio.play_sfx(solved_sfx)
 
 func next_level():
 	$'/root/GameUi'.reset_items()
