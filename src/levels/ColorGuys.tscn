@@ -58,6 +58,7 @@ __meta__ = {
 [node name="FloodPuzzle" type="Node2D" parent="."]
 position = Vector2( 704, 256 )
 script = ExtResource( 6 )
+tile_size = 32
 size = Vector2( 10, 8 )
 red = Color( 0.81, 0.0567, 0.0567, 1 )
 green = Color( 0.0902, 0.82, 0.0902, 1 )
