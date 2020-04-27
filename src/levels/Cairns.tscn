@@ -1,0 +1,172 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/levels/Cairns.gd" type="Script" id=5]
+[ext_resource path="res://scripts/spectacles.gd" type="Script" id=6]
+[ext_resource path="res://assets/characters/OldCroneProfile.png" type="Texture" id=7]
+[ext_resource path="res://scripts/oldcrone.gd" type="Script" id=8]
+[ext_resource path="res://scripts/NotSpectacles.gd" type="Script" id=9]
+[ext_resource path="res://scripts/CairnMannaz.gd" type="Script" id=10]
+[ext_resource path="res://scripts/CairnHagalaz.gd" type="Script" id=11]
+[ext_resource path="res://scripts/CairnIsaz.gd" type="Script" id=12]
+[ext_resource path="res://scripts/CairnBerkanan.gd" type="Script" id=13]
+[ext_resource path="res://scripts/CairnSowilo.gd" type="Script" id=14]
+[ext_resource path="res://assets/items/spectacles.png" type="Texture" id=15]
+[ext_resource path="res://assets/objects/mannaz.png" type="Texture" id=16]
+[ext_resource path="res://assets/objects/hagalaz.png" type="Texture" id=17]
+[ext_resource path="res://assets/objects/isaz.png" type="Texture" id=18]
+[ext_resource path="res://assets/objects/berkana.png" type="Texture" id=19]
+[ext_resource path="res://assets/objects/sowilo.png" type="Texture" id=20]
+[ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=21]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.4389
+height = 18.6515
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 89.1725
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 99.7253
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 25.9679
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 28.9642
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 29.7997
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 34.5366
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 26.5526
+
+[node name="Cairns" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 21 )
+format = 1
+tile_data = PoolIntArray( 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 7, 0, 11, 7, 0, 12, 7, 0, 13, 7, 0, 14, 7, 0, 65536, 7, 0, 65537, 7, 0, 65538, 7, 0, 65539, 6, 0, 65540, 5, 0, 65541, 4, 0, 65542, 5, 0, 65543, 4, 0, 65544, 6, 0, 65545, 5, 0, 65546, 7, 0, 65547, 7, 0, 65548, 11, 0, 65549, 12, 0, 65550, 7, 0, 131072, 7, 0, 131073, 7, 0, 131074, 5, 0, 131075, 9, 0, 131076, 10, 0, 131077, 10, 0, 131078, 10, 0, 131079, 10, 0, 131080, 10, 0, 131081, -1610612727, 0, 131082, 4, 0, 131083, 7, 0, 131084, 13, 0, 131085, 14, 0, 131086, 7, 0, 196608, 7, 0, 196609, 6, 0, 196610, 9, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 1, 0, 196618, -1610612727, 0, 196619, 5, 0, 196620, 15, 0, 196621, 16, 0, 196622, 5, 0, 196623, 7, 0, 196624, 7, 0, 262144, 7, 0, 262145, 9, 0, 262146, 3, 0, 262147, 0, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 262155, -1610612727, 0, 262156, 15, 0, 262157, 16, 0, 262158, -1610612727, 0, 262159, 4, 0, 262160, 6, 0, 262161, 7, 0, 262162, 7, 0, 327680, 7, 0, 327681, 8, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 2, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 3, 0, 327695, -1610612728, 0, 327696, -1610612727, 0, 327697, 5, 0, 327698, 5, 0, 327699, 7, 0, 393216, 7, 0, 393217, 8, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 393227, 3, 0, 393228, 15, 0, 393229, 16, 0, 393230, 3, 0, 393231, 0, 0, 393232, 3, 0, 393233, -1610612728, 0, 393234, -1610612727, 0, 393235, 7, 0, 458752, 7, 0, 458753, -1073741815, 0, 458754, 3, 0, 458755, 3, 0, 458756, 2, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458761, 3, 0, 458762, 3, 0, 458763, 1610612745, 0, 458764, 15, 0, 458765, 16, 0, 458766, -1073741816, 0, 458767, 3, 0, 458768, 3, 0, 458769, 3, 0, 458770, 1610612744, 0, 458771, 7, 0, 524288, 7, 0, 524289, 7, 0, 524290, -1073741815, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 1, 0, 524297, 3, 0, 524298, 1610612745, 0, 524299, 7, 0, 524300, 15, 0, 524301, 16, 0, 524302, 7, 0, 524303, -1073741815, 0, 524304, 3, 0, 524305, 3, 0, 524306, 1610612745, 0, 524307, 7, 0, 589824, 7, 0, 589825, 7, 0, 589826, 7, 0, 589827, -1073741815, 0, 589828, -1073741816, 0, 589829, -1073741816, 0, 589830, -1073741816, 0, 589831, -1073741816, 0, 589832, -1073741816, 0, 589833, 1610612745, 0, 589834, 7, 0, 589835, 7, 0, 589836, 15, 0, 589837, 16, 0, 589838, 7, 0, 589839, 7, 0, 589840, -1073741815, 0, 589841, 1610612745, 0, 589842, 7, 0, 589843, 7, 0, 655360, 7, 0, 655361, 7, 0, 655362, 7, 0, 655363, 7, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 7, 0, 655368, 7, 0, 655369, 7, 0, 655370, 7, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 7, 0, 655378, 7, 0, 655379, 7, 0, 720896, 7, 0, 720897, 7, 0, 720898, 7, 0, 720899, 7, 0, 720900, 7, 0, 720901, 7, 0, 720902, 7, 0, 720903, 7, 0, 720904, 7, 0, 720905, 7, 0, 720906, 7, 0, 720907, 7, 0, 720908, 7, 0, 720909, 7, 0, 720910, 7, 0, 720911, 7, 0, 720912, 7, 0, 720913, 7, 0, 720914, 7, 0, 720915, 7, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1074.38, 590.788 )
+
+[node name="Dog" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 1106.23, 614.805 )
+
+[node name="Entrance" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1074.38, 579.057 )
+
+[node name="Portal" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 435.354, 371.808 )
+
+[node name="OldCrone" type="StaticBody2D" parent="YSort"]
+position = Vector2( 107.793, 287.771 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OldCrone"]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="YSort/OldCrone"]
+position = Vector2( 2.64809, -24.4949 )
+texture = ExtResource( 7 )
+
+[node name="Spectacles" type="StaticBody2D" parent="YSort"]
+position = Vector2( 720.007, 671.367 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Spectacles"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Spectacles"]
+texture = ExtResource( 15 )
+
+[node name="NotSpectacles" type="StaticBody2D" parent="YSort"]
+position = Vector2( 1180.24, 104.557 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NotSpectacles"]
+shape = SubResource( 3 )
+
+[node name="CairnMannaz" type="StaticBody2D" parent="YSort"]
+position = Vector2( 558.449, 235.047 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnMannaz"]
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnMannaz"]
+position = Vector2( -6.22107, -29.8854 )
+scale = Vector2( 2.14016, 2.01969 )
+texture = ExtResource( 16 )
+
+[node name="CairnHagalaz" type="StaticBody2D" parent="YSort"]
+position = Vector2( 328.396, 235.933 )
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnHagalaz"]
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnHagalaz"]
+position = Vector2( -4.17719, -24.9202 )
+scale = Vector2( 1.75724, 1.78305 )
+texture = ExtResource( 17 )
+
+[node name="CairnIsaz" type="StaticBody2D" parent="YSort"]
+position = Vector2( 632.465, 419.35 )
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnIsaz"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnIsaz"]
+position = Vector2( -5.09903, -39.73 )
+scale = Vector2( 2.39161, 2.41817 )
+texture = ExtResource( 18 )
+
+[node name="CairnSowilo" type="StaticBody2D" parent="YSort"]
+position = Vector2( 422.529, 551.075 )
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnSowilo"]
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnSowilo"]
+position = Vector2( -2.24158, -33.4568 )
+scale = Vector2( 1.98041, 2.42968 )
+texture = ExtResource( 20 )
+
+[node name="CairnBerkanan" type="StaticBody2D" parent="YSort"]
+position = Vector2( 217.61, 427.761 )
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CairnBerkanan"]
+rotation = 1.5708
+shape = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="YSort/CairnBerkanan"]
+position = Vector2( -0.0458984, -18.5959 )
+scale = Vector2( 2.04925, 1.98872 )
+texture = ExtResource( 19 )
+[connection signal="mannaz" from="YSort/CairnMannaz" to="." method="_on_CairnMannaz_mannaz"]
+[connection signal="hagalaz" from="YSort/CairnHagalaz" to="." method="_on_CairnHagalaz_hagalaz"]
+[connection signal="isaz" from="YSort/CairnIsaz" to="." method="_on_CairnIsaz_isaz"]
+[connection signal="sowilo" from="YSort/CairnSowilo" to="." method="_on_CairnSowilo_sowilo"]
+[connection signal="berkanan" from="YSort/CairnBerkanan" to="." method="_on_CairnBerkanan_berkanan"]
