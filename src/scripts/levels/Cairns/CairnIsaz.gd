@@ -1,9 +1,12 @@
 extends StaticBody2D
 
-signal sowilo
+signal isaz
+
+var activate = preload('res://assets/sfx/activate1.wav')
 
 func _interact(_player):
-	emit_signal("sowilo")
+	Audio.play_sfx(activate)
+	emit_signal("isaz")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

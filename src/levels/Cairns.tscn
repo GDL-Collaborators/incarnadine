@@ -1,19 +1,19 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/levels/Cairns.gd" type="Script" id=5]
-[ext_resource path="res://scripts/spectacles.gd" type="Script" id=6]
+[ext_resource path="res://scripts/levels/Cairns/spectacles.gd" type="Script" id=6]
 [ext_resource path="res://assets/characters/OldCroneProfile.png" type="Texture" id=7]
-[ext_resource path="res://scripts/oldcrone.gd" type="Script" id=8]
-[ext_resource path="res://scripts/NotSpectacles.gd" type="Script" id=9]
-[ext_resource path="res://scripts/CairnMannaz.gd" type="Script" id=10]
-[ext_resource path="res://scripts/CairnHagalaz.gd" type="Script" id=11]
-[ext_resource path="res://scripts/CairnIsaz.gd" type="Script" id=12]
-[ext_resource path="res://scripts/CairnBerkanan.gd" type="Script" id=13]
-[ext_resource path="res://scripts/CairnSowilo.gd" type="Script" id=14]
+[ext_resource path="res://scripts/levels/Cairns/oldcrone.gd" type="Script" id=8]
+[ext_resource path="res://scripts/levels/Cairns/NotSpectacles.gd" type="Script" id=9]
+[ext_resource path="res://scripts/levels/Cairns/CairnMannaz.gd" type="Script" id=10]
+[ext_resource path="res://scripts/levels/Cairns/CairnHagalaz.gd" type="Script" id=11]
+[ext_resource path="res://scripts/levels/Cairns/CairnIsaz.gd" type="Script" id=12]
+[ext_resource path="res://scripts/levels/Cairns/CairnBerkanan.gd" type="Script" id=13]
+[ext_resource path="res://scripts/levels/Cairns/CairnSowilo.gd" type="Script" id=14]
 [ext_resource path="res://assets/items/spectacles.png" type="Texture" id=15]
 [ext_resource path="res://assets/objects/mannaz.png" type="Texture" id=16]
 [ext_resource path="res://assets/objects/hagalaz.png" type="Texture" id=17]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/objects/berkana.png" type="Texture" id=19]
 [ext_resource path="res://assets/objects/sowilo.png" type="Texture" id=20]
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=21]
+[ext_resource path="res://assets/debris.png" type="Texture" id=22]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.4389
@@ -61,13 +62,13 @@ __meta__ = {
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 1074.38, 590.788 )
+position = Vector2( 1088.06, 526.578 )
 
 [node name="Dog" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 1106.23, 614.805 )
+position = Vector2( 1119.91, 550.595 )
 
 [node name="Entrance" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 1074.38, 579.057 )
+position = Vector2( 1088.06, 514.847 )
 
 [node name="Portal" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 435.354, 371.808 )
@@ -93,6 +94,22 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Spectacles"]
 texture = ExtResource( 15 )
+
+[node name="debris" type="Sprite" parent="YSort/Spectacles/Sprite"]
+position = Vector2( -118.745, -66.3685 )
+texture = ExtResource( 22 )
+
+[node name="debris2" type="Sprite" parent="YSort/Spectacles/Sprite"]
+position = Vector2( 335.991, -325.315 )
+texture = ExtResource( 22 )
+
+[node name="debris3" type="Sprite" parent="YSort/Spectacles/Sprite"]
+position = Vector2( -273.482, -517.946 )
+texture = ExtResource( 22 )
+
+[node name="debris4" type="Sprite" parent="YSort/Spectacles/Sprite"]
+position = Vector2( -481.902, -71.6315 )
+texture = ExtResource( 22 )
 
 [node name="NotSpectacles" type="StaticBody2D" parent="YSort"]
 position = Vector2( 1180.24, 104.557 )
