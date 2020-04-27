@@ -3,7 +3,7 @@ extends StaticBody2D
 var _interact_label = 'Lost Spectacles'
 
 func _interact(player):
-	player.add_item('spectacles', 'spectacles')
+	player.add_item('spectacles', 'Spectacles')
 	queue_free()
 
 # Declare member variables here. Examples:

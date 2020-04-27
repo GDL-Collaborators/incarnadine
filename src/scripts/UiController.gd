@@ -9,7 +9,8 @@ var item_icons = {
 	'RedPaint': preload('res://assets/items/RedPaint.png'),
 	'BluePaint': preload('res://assets/items/BluePaint.png'),
 	'GreenPaint': preload('res://assets/items/GreenPaint.png'),
-	'Sword': preload('res://assets/items/Sword.png')
+	'Sword': preload('res://assets/items/Sword.png'),
+	'Spectacles': preload('res://assets/items/spectacles.png')
 }
 var items: Array = []
 
