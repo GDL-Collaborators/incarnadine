@@ -34,9 +34,9 @@ func read_item():
 		tree = null
 	else:
 		var item = tree[current_item]
-		
+
 		dialogue_body.text = item.body
-		
+
 		if item.has('name'):
 			dialogue_name.text = item.name
 

@@ -12,6 +12,7 @@ func _ready():
 var _interact_label = 'Flip Lever'
 func _interact(_player):
 	on = !on
+	print('flip', on)
 	$AudioStreamPlayer2D.play()
 	set_sprite()
 	emit_signal('flipped', on)

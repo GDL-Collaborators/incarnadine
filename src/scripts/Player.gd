@@ -56,19 +56,20 @@ func _physics_process(_delta):
 	else:
 		GameUi.set_interact_label(null)
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed('interact'):
-		if not interactables.empty():
-			interactables.front()._interact(self)
-		elif has_weapon():
-			melee_attack()
+func _unhandled_input(event):
+	if event.is_pressed():
+		if event.is_action('interact'):
+			if not interactables.empty():
+				interactables.front()._interact(self)
+			elif has_weapon():
+				melee_attack()
 
-	if Input.is_action_just_pressed('dog'):
-		match dog.state:
-			dog.State.FOLLOW:
-				dog.sit()
-			dog.State.SIT:
-				dog.follow(self)
+		if event.is_action('dog'):
+			match dog.state:
+				dog.State.FOLLOW:
+					dog.sit()
+				dog.State.SIT:
+					dog.follow(self)
 
 func _hurt():
 	pass
@@ -121,9 +122,9 @@ func pick_animation():
 			direction = 'right' if velocity.x > 0 else 'left'
 		else:
 			direction = 'down' if velocity.y > 0 else 'up'
-			
+
 		sprite.animation = 'walk_' + direction
-		
+
 		if !last_anim.begins_with('walk_'):
 			sprite.frame = walk_frame
 		else:

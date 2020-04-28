@@ -20,12 +20,33 @@ func _ready():
 	$DialogueBox.visible = false
 	$PopupInventory.visible = false
 
+func _input(event):
+	if event.is_action('up'):
+		Input.parse_input_event(make_input_event('ui_up', event.is_pressed()))
+	elif event.is_action('down'):
+		Input.parse_input_event(make_input_event('ui_down', event.is_pressed()))
+	elif event.is_action('left'):
+		Input.parse_input_event(make_input_event('ui_left', event.is_pressed()))
+	elif event.is_action('right'):
+		Input.parse_input_event(make_input_event('ui_right', event.is_pressed()))
+	elif event.is_action('interact'):
+		Input.parse_input_event(make_input_event('ui_select', event.is_pressed()))
+		Input.parse_input_event(make_input_event('ui_accept', event.is_pressed()))
+	elif event.is_action('dog'):
+		Input.parse_input_event(make_input_event('ui_cancel', event.is_pressed()))
+
+func make_input_event(name, pressed):
+	var event = InputEventAction.new()
+	event.action = name
+	event.pressed = pressed
+	return event
+
 func start_dialogue(tree):
 	get_tree().paused = true
 	$DialogueBox.set_tree(tree)
 	$Controls.visible = false
 	$DialogueBox.visible = true
-	
+
 func end_dialogue():
 	$DialogueBox.visible = false
 	$Controls.visible = true
@@ -92,6 +113,6 @@ func set_interact_label(value):
 		$Controls/InteractLabel.text = value
 	else:
 		$Controls/InteractLabel.text = 'Interact'
-	
+
 func set_dog_label(value):
 	$Controls/DogLabel.text = value

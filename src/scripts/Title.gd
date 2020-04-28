@@ -1,5 +1,7 @@
 extends Node2D
 
+signal select_input
+
 onready var main_menu = get_tree().get_nodes_in_group('main_menu').front()
 onready var options_menu = get_tree().get_nodes_in_group('options_menu').front()
 onready var controls_menu = get_tree().get_nodes_in_group('controls_menu').front()
@@ -18,7 +20,7 @@ func _ready():
 	main_menu.get_node('Button').connect('pressed', self, 'start_clicked')
 	main_menu.get_node('Button2').connect('pressed', self, 'go_to_options')
 	main_menu.get_node('Button3').connect('pressed', self, 'exit_clicked')
-	
+
 	options_menu.get_node('CheckButton').connect('toggled', self, 'animation_effect_toggle')
 	options_menu.get_node('Button').connect('pressed', self, 'return_to_main')
 	options_menu.get_node('Button2').connect('pressed', self, 'go_to_controls')
@@ -30,6 +32,7 @@ func _ready():
 			inst.get_node('Name').text = controls_name_map.get(name, name)
 			var actions = InputMap.get_action_list(name)
 			inst.get_node('Assignment').text = actions.front().as_text()
+			inst.get_node('Edit').connect('pressed', self, 'bind_input', [name, inst])
 			controls_menu.add_child_below_node(controls_menu.get_node('Placeholder'), inst)
 
 	return_to_main()
@@ -44,13 +47,13 @@ func go_to_options():
 	options_menu.visible = true
 	controls_menu.visible = false
 	options_menu.get_node('Button').grab_focus()
-	
+
 func go_to_controls():
 	main_menu.visible = false
 	options_menu.visible = false
 	controls_menu.visible = true
 	controls_menu.get_node('Button3').grab_focus()
-	
+
 func return_to_main():
 	main_menu.visible = true
 	options_menu.visible = false
@@ -62,3 +65,31 @@ func exit_clicked():
 
 func animation_effect_toggle(state):
 	GameState.use_animation_effect = state
+
+var bind_mode = false
+
+func bind_input(name, inst):
+	bind_mode = true
+	var event = yield(self, 'select_input')
+	bind_mode = false
+	InputMap.action_erase_events(name)
+	InputMap.action_add_event(name, event)
+	inst.get_node('Assignment').text = event.as_text()
+
+func _input(event):
+	if bind_mode:
+		# Let's ignore mouse movement because that'd be annoying
+		if event is InputEventMouseMotion:
+			return
+
+		# Just in case...
+		if event is InputEventAction:
+			return
+
+		# Skip esc too
+		if event is InputEventKey and event.scancode == KEY_ESCAPE:
+			return
+
+		print('grabbed',  event.as_text())
+		get_tree().set_input_as_handled()
+		emit_signal('select_input', event)
