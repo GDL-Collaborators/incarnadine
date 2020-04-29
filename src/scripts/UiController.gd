@@ -19,6 +19,7 @@ onready var popup_grid = $PopupInventory/CenterContainer/PanelContainer/MarginCo
 func _ready():
 	$DialogueBox.visible = false
 	$PopupInventory.visible = false
+	update_keybinds()
 
 func _input(event):
 	if event.is_action('up'):
@@ -35,11 +36,45 @@ func _input(event):
 	elif event.is_action('dog'):
 		Input.parse_input_event(make_input_event('ui_cancel', event.is_pressed()))
 
+func update_keybinds():
+	$Controls/DogKey.text = get_input_name(InputMap.get_action_list('dog').front())
+	$Controls/InteractKey.text = get_input_name(InputMap.get_action_list('interact').front())
+
 func make_input_event(name, pressed):
 	var event = InputEventAction.new()
 	event.action = name
 	event.pressed = pressed
 	return event
+
+var button_names = [
+	'(A)',
+	'(B)',
+	'(X)',
+	'(Y)',
+	'(L)',
+	'(R)',
+	'(L2)',
+	'(R2)',
+	'(L3)',
+	'(R3)',
+	'◀',
+	'▶',
+	'↑',
+	'↓',
+	'←',
+	'→'
+]
+func get_input_name(event):
+	if event is InputEventKey:
+		return event.as_text()
+	if event is InputEventJoypadButton:
+		return button_names[event.button_index]
+	if event is InputEventJoypadMotion:
+		return str(event.axis) + ('+' if event.axis_value >= 0 else '-')
+	if event is InputEventMouseButton:
+		return 'M' + str(event.button_index)
+
+	return '?'
 
 func start_dialogue(tree):
 	get_tree().paused = true

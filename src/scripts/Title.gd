@@ -74,7 +74,8 @@ func bind_input(name, inst):
 	bind_mode = false
 	InputMap.action_erase_events(name)
 	InputMap.action_add_event(name, event)
-	inst.get_node('Assignment').text = event.as_text()
+	inst.get_node('Assignment').text = GameUi.get_input_name(event)
+	GameUi.update_keybinds()
 
 func _input(event):
 	if bind_mode:
@@ -90,6 +91,5 @@ func _input(event):
 		if event is InputEventKey and event.scancode == KEY_ESCAPE:
 			return
 
-		print('grabbed',  event.as_text())
 		get_tree().set_input_as_handled()
 		emit_signal('select_input', event)
