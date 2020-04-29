@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Title.gd" type="Script" id=1]
-[ext_resource path="res://assets/music/68_jazz_100bpm_70s_keys.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/arp_song.ogg" type="AudioStream" id=2]
 [ext_resource path="res://vfx/material/screenspace/fadematerial.tres" type="Material" id=3]
 [ext_resource path="res://scripts/FadeEffect.gd" type="Script" id=4]
 [ext_resource path="res://assets/Title.png" type="Texture" id=5]

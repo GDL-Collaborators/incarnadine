@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scripts/levels/ColorGuys/Greenston.gd" type="Script" id=13]
 [ext_resource path="res://scripts/levels/ColorGuys/Bluewood.gd" type="Script" id=14]
 [ext_resource path="res://scripts/levels/ColorGuys/Funnel.gd" type="Script" id=15]
+[ext_resource path="res://assets/music/bouncy_song_update.ogg" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 192, 160 )
@@ -101,3 +102,9 @@ script = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 rotation = 1.57079
 shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 16 )
+volume_db = -10.0
+autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://objects/pushblocks/PushBlockSmA.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/pushblocks/PushBlockZigZagB.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://objects/Door.tscn" type="PackedScene" id=24]
 [ext_resource path="res://assets/pushblocks/Switch.png" type="Texture" id=25]
 [ext_resource path="res://objects/Reset Button.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/music/arp_brass.ogg" type="AudioStream" id=27]
 
 [node name="SlidingPuzzle2" type="Node2D"]
 script = ExtResource( 16 )
@@ -151,3 +152,12 @@ position = Vector2( 1088, 640 )
 
 [node name="WaitSpot" type="Node2D" parent="."]
 position = Vector2( 584.215, 24.2107 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 27 )
+volume_db = -5.0
+autoplay = true
+__meta__ = {
+"_editor_description_": ""
+}

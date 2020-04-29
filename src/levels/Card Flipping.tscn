@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/objects/Cards.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://objects/doodads/Bookshelf.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/doodads/Torch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/doodads/Poster.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/music/puzzle_song_1v2.ogg" type="AudioStream" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -134,3 +135,8 @@ position = Vector2( 1040.79, 559.502 )
 
 [node name="Portal" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 196.955, 212.942 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 12 )
+autoplay = true

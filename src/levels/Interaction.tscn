@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/map/BaseTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Lever.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://objects/Dog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/Portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Entrance.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/music/brightjam-2.ogg" type="AudioStream" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -55,4 +56,10 @@ position = Vector2( 393.251, 365.204 )
 
 [node name="Gargoyle" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 630.865, 287.867 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 8 )
+volume_db = -10.0
+autoplay = true
 [connection signal="flipped" from="YSort/Lever" to="." method="_on_Lever_flipped"]
