@@ -29,13 +29,15 @@ func _ready():
 		temp_card_array.remove(i)
 
 func on_card_flip(card : Card):
-	if card != _previously_flipped_card:
-		if _previously_flipped_card != null:
-			if card.sprite.texture == _previously_flipped_card.sprite.texture:
+	var other_card = _previously_flipped_card
+
+	if card != other_card:
+		if other_card != null:
+			if card.sprite.texture == other_card.sprite.texture:
 				yield(get_tree().create_timer(0.4), 'timeout')
-				allCards.erase(_previously_flipped_card)
-				despawn_effect(_previously_flipped_card)
-				_previously_flipped_card.queue_free()
+				allCards.erase(other_card)
+				despawn_effect(other_card)
+				other_card.queue_free()
 				_previously_flipped_card = null
 				allCards.erase(card)
 				despawn_effect(card)
@@ -44,7 +46,7 @@ func on_card_flip(card : Card):
 					GameState.unlock_exit()
 					pass
 			else:
-				_previously_flipped_card.start_delayed_flip(_delayed_flip_time)
+				other_card.start_delayed_flip(_delayed_flip_time)
 				_previously_flipped_card = null
 				card.start_delayed_flip(_delayed_flip_time)
 		else:
