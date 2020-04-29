@@ -7,26 +7,29 @@ var follow_distance = 50
 var follow_timer = 1
 var follow_trail = []
 
-enum State { FOLLOW, SIT }
+enum State { FOLLOW, SIT, STAY }
 var state = State.FOLLOW
 
 onready var player = get_tree().get_nodes_in_group('player').front()
 onready var sprite: AnimatedSprite = $AnimatedSprite
 onready var target = player
+onready var spot = null
 
 # Commands
 func follow(who: Node):
 	follow_trail = []
 	target = who
 	state = State.FOLLOW
-	GameUi.set_dog_label('Sit')
 
 func follow_player():
 	follow(player)
 
 func sit():
 	state = State.SIT
-	GameUi.set_dog_label('Follow')
+
+func stay(where: Vector2):
+	state = State.STAY
+	spot = where
 
 # Implementation
 func _physics_process(delta):
@@ -36,15 +39,23 @@ func _physics_process(delta):
 		State.FOLLOW:
 			follow_timer -= delta
 			target_speed = determine_follow_velocity()
-			
+
 			velocity = velocity.linear_interpolate(target_speed, 0.5)
 			linear_velocity = velocity
 		State.SIT:
 			linear_velocity *= 0.5
+		State.STAY:
+			if position.distance_to(spot) > 5:
+				target_speed = position.direction_to(spot) * speed
+			else:
+				target_speed = Vector2.ZERO
+
+			velocity = velocity.linear_interpolate(target_speed, 0.5)
+			linear_velocity = velocity
 
 	rotation = 0
 	angular_velocity = 0
-		
+
 	idle_timer -= delta
 	pick_animation(target_speed if target_speed.length() > 4 else position.direction_to(target.position))
 
@@ -64,18 +75,18 @@ func pick_animation(direction):
 					sprite.animation = 'idle1'
 				else:
 					sprite.animation = 'stand'
-		State.SIT:
+		State.SIT, State.STAY:
 			sprite.animation = 'run' if linear_velocity.length() > 5 else 'sit'
 			sprite.flip_h = direction.x >= 0
 
 var frames = 0
 func determine_follow_velocity():
 	frames += 1
-	
+
 	if frames % 6 == 0:
 		if not follow_trail.size() or target.position.distance_to(follow_trail.front()) > 1:
 			follow_trail.push_front(target.position)
-			
+
 	var ray_hit = get_world_2d().direct_space_state.intersect_ray(position, target.position, [self, target])
 
 	if ray_hit:

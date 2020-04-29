@@ -139,9 +139,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Controls" groups=[
+[node name="DogTex" type="TextureRect" parent="Controls" groups=[
 "use_sprite_effect",
 ]]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -190,6 +191,7 @@ __meta__ = {
 [node name="DogKey" type="Label" parent="Controls" groups=[
 "use_canvas_effect",
 ]]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -207,6 +209,7 @@ __meta__ = {
 }
 
 [node name="DogLabel" type="Label" parent="Controls"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

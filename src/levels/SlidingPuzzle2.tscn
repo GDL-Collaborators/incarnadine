@@ -148,3 +148,6 @@ position = Vector2( 576, 192 )
 
 [node name="Door2" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1088, 640 )
+
+[node name="WaitSpot" type="Node2D" parent="."]
+position = Vector2( 584.215, 24.2107 )

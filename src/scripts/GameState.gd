@@ -62,6 +62,7 @@ func next_level():
 	level_solved = false
 
 	get_tree().disconnect('tree_changed', self, 'apply_animation_effect')
+	GameUi.set_dog_label(null)
 
 	if current_level < levels.size():
 		get_tree().change_scene_to(levels[current_level])
@@ -88,7 +89,7 @@ func apply_animation_effect():
 		else:
 			if item.material == canvas_material:
 				item.material = null
-			
+
 	for item in get_tree().get_nodes_in_group('use_sprite_effect'):
 		if use_animation_effect:
 			if not item.material:

@@ -13,7 +13,6 @@ var attacking = false
 var flags = {}
 
 onready var activator: KinematicBody2D = $ActivateBox
-onready var dog = get_tree().get_nodes_in_group('dog').front()
 
 func _process(_delta):
 	var input = get_input_vector()
@@ -63,13 +62,6 @@ func _unhandled_input(event):
 				interactables.front()._interact(self)
 			elif has_weapon():
 				melee_attack()
-
-		if event.is_action('dog'):
-			match dog.state:
-				dog.State.FOLLOW:
-					dog.sit()
-				dog.State.SIT:
-					dog.follow(self)
 
 func _hurt():
 	pass

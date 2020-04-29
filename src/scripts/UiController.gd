@@ -150,4 +150,12 @@ func set_interact_label(value):
 		$Controls/InteractLabel.text = 'Interact'
 
 func set_dog_label(value):
-	$Controls/DogLabel.text = value
+	if value:
+		$Controls/DogLabel.text = value
+		$Controls/DogLabel.visible = true
+		$Controls/DogKey.visible = true
+		$Controls/DogTex.visible = true
+	else:
+		$Controls/DogLabel.visible = false
+		$Controls/DogKey.visible = false
+		$Controls/DogTex.visible = false
