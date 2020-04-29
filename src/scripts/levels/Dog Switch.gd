@@ -23,7 +23,6 @@ func _unhandled_input(event):
 		if dog.state == dog.State.FOLLOW:
 			for button in buttons:
 				if dog.position.distance_to(button.position) < 50:
-					print('near button')
 					dog.stay(button.position + Vector2(0, 7))
 
 			if dog.state == dog.State.FOLLOW:
